@@ -1213,7 +1213,7 @@ export function PortfolioPage() {
               )}
             </div>
             <p className="mt-12 text-sm text-zinc-500">
-              © {new Date().getFullYear()} Markus. {t(uiCopy.footer)}
+              © 2025 Markus. {t(uiCopy.footer)}
             </p>
           </div>
         </section>
