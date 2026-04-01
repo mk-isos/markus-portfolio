@@ -1,0 +1,21 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <rect x="44" y="44" width="1112" height="542" rx="34" fill="#111827"/>
+  <circle cx="160" cy="118" r="12" fill="#0F766E"/>
+  <circle cx="196" cy="118" r="12" fill="#14B8A6"/>
+  <rect x="96" y="158" width="468" height="314" rx="30" fill="url(#paint0_linear_10_2)"/>
+  <rect x="600" y="158" width="504" height="74" rx="18" fill="#1F2937"/>
+  <rect x="600" y="252" width="430" height="34" rx="10" fill="#334155"/>
+  <rect x="600" y="304" width="458" height="34" rx="10" fill="#334155"/>
+  <rect x="600" y="356" width="392" height="34" rx="10" fill="#334155"/>
+  <rect x="600" y="426" width="188" height="52" rx="14" fill="#0F766E"/>
+  <path d="M156 411V226H195.5L259 329L322.5 226H362V411H321V300L274.5 378H243.5L197 300V411H156Z" fill="white"/>
+  <text x="600" y="120" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="48" font-weight="700">Markus | Backend &amp; AI Developer</text>
+  <text x="600" y="464" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="30">Fail Fast - Positive Influence</text>
+  <defs>
+    <linearGradient id="paint0_linear_10_2" x1="96" y1="160" x2="570" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#164E63"/>
+    </linearGradient>
+  </defs>
+</svg>

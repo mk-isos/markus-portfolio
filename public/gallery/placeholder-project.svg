@@ -1,0 +1,12 @@
+<svg width="960" height="640" viewBox="0 0 960 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="640" fill="#E2E8F0"/>
+  <rect x="60" y="72" width="840" height="496" rx="28" fill="#F8FAFC"/>
+  <rect x="106" y="126" width="320" height="40" rx="12" fill="#CBD5E1"/>
+  <rect x="106" y="186" width="748" height="24" rx="8" fill="#E2E8F0"/>
+  <rect x="106" y="224" width="620" height="24" rx="8" fill="#E2E8F0"/>
+  <rect x="106" y="288" width="168" height="44" rx="12" fill="#0F766E"/>
+  <rect x="106" y="368" width="356" height="156" rx="20" fill="#DBEAFE"/>
+  <rect x="498" y="368" width="356" height="156" rx="20" fill="#CCFBF1"/>
+  <text x="106" y="96" fill="#0F172A" font-family="Arial, sans-serif" font-size="22" font-weight="700">Placeholder Image</text>
+  <text x="106" y="594" fill="#64748B" font-family="Arial, sans-serif" font-size="22">Replace with /public/gallery/your-image-name.jpg</text>
+</svg>

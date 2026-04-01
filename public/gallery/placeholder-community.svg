@@ -1,0 +1,11 @@
+<svg width="960" height="640" viewBox="0 0 960 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="640" fill="#E0F2FE"/>
+  <rect x="66" y="66" width="828" height="508" rx="30" fill="#F8FAFC"/>
+  <circle cx="232" cy="236" r="84" fill="#93C5FD"/>
+  <circle cx="448" cy="236" r="84" fill="#38BDF8"/>
+  <circle cx="664" cy="236" r="84" fill="#0284C7"/>
+  <rect x="164" y="372" width="560" height="32" rx="10" fill="#CBD5E1"/>
+  <rect x="216" y="424" width="456" height="26" rx="10" fill="#E2E8F0"/>
+  <text x="96" y="110" fill="#0F172A" font-family="Arial, sans-serif" font-size="22" font-weight="700">Community Placeholder</text>
+  <text x="96" y="594" fill="#64748B" font-family="Arial, sans-serif" font-size="22">Swap this file with your own event/community photo.</text>
+</svg>
