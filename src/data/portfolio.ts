@@ -679,7 +679,7 @@ export const timeline = [
   },
   {
     year: "2024",
-    title: text("AI 프로젝트 집중", "Focused on AI Projects"),
+    title: text("프로젝트 집중", "Focused on AI Projects"),
     description: text(
       "AI 오픈소스 프로젝트, 해커톤, 개발 대회를 통해 실제 문제 해결형 개발을 경험했습니다.",
       "I gained hands-on experience in problem-driven development through AI projects, hackathons, and competitions.",
