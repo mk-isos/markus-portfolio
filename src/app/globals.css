@@ -1,0 +1,110 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-body: "Pretendard Variable", "SUIT Variable", "Noto Sans KR",
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-display: "Sora", "Space Grotesk", "Pretendard Variable",
+    "Noto Sans KR", sans-serif;
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface-muted: #f0f1f4;
+  --foreground: #09090b;
+  --muted: #52525b;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --border: #e4e4e7;
+}
+
+.dark {
+  --bg: #09090b;
+  --surface: #111113;
+  --surface-muted: #16161a;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --accent: #60a5fa;
+  --accent-strong: #3b82f6;
+  --border: #27272a;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(
+      circle at 12% -16%,
+      rgba(37, 99, 235, 0.1),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 86% -18%,
+      rgba(125, 125, 141, 0.08),
+      transparent 35%
+    ),
+    linear-gradient(180deg, #fafafa 0%, #f5f5f7 45%, #efeff1 100%);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+}
+
+.dark body {
+  background-image: radial-gradient(
+      circle at 10% -20%,
+      rgba(59, 130, 246, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(circle at 84% -30%, rgba(255, 255, 255, 0.06), transparent 38%),
+    linear-gradient(180deg, #0a0a0c 0%, #09090b 48%, #060608 100%);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.28);
+  color: #09090b;
+}
+
+.dark ::selection {
+  background: rgba(96, 165, 250, 0.35);
+  color: #f4f4f5;
+}
+
+@keyframes galleryFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.gallery-float {
+  animation: galleryFloat 11s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-float {
+    animation: none;
+  }
+}
