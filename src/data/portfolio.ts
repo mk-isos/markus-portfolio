@@ -293,6 +293,7 @@ export const projects: Project[] = [
       text("팀 협업 및 서비스 개선 경험", "Experience in team collaboration and service improvement"),
     ],
     githubUrl: "https://github.com/Co-Labor-Project",
+    demoUrl: "https://www.youtube.com/watch?v=qejuaeaR0eI",
     status: text("완료", "Completed"),
   },
   {
