@@ -509,22 +509,17 @@ export function PortfolioPage() {
             description={t(sectionCopy.projects.description)}
           />
           <div className="space-y-6">
-            {projects.map((project) => (
-              <article
-                key={project.name}
-                className="rounded-3xl border border-zinc-200 bg-white/90 p-8 dark:border-zinc-800 dark:bg-zinc-900/80"
-              >
-                <button
-                  type="button"
-                  onClick={() =>
-                    setExpandedProjectName((prev) =>
-                      prev === project.name ? null : project.name,
-                    )
-                  }
-                  className="w-full text-left"
+            {projects.map((project, index) => {
+              const detailPanelId = `project-detail-${index}`;
+              const isExpanded = expandedProjectName === project.name;
+
+              return (
+                <article
+                  key={project.name}
+                  className="flex flex-col rounded-3xl border border-zinc-200 bg-white/90 p-8 dark:border-zinc-800 dark:bg-zinc-900/80"
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div>
+                    <div className="max-w-4xl">
                       <h3 className="text-2xl font-semibold text-zinc-950 dark:text-zinc-100">
                         {project.name}
                       </h3>
@@ -532,258 +527,266 @@ export function PortfolioPage() {
                         {t(project.oneLiner)}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-full bg-zinc-900 px-3 py-1 text-xs font-semibold text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900">
-                        {t(project.status)}
-                      </span>
-                      <span className="rounded-full border border-zinc-300 px-3 py-1 text-xs font-semibold text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
-                        {expandedProjectName === project.name
-                          ? t(uiCopy.projectDetailClose)
-                          : t(uiCopy.projectDetailOpen)}
-                      </span>
-                    </div>
-                  </div>
-                </button>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {[
-                    ...(project.techStack.backend ?? []),
-                    ...(project.techStack.ai ?? []),
-                    ...(project.techStack.frontend ?? []),
-                    ...(project.techStack.infra ?? []),
-                    ...(project.techStack.tools ?? []),
-                  ].map((tech) => (
-                    <span
-                      key={`${project.name}-${tech}`}
-                      className="rounded-full border border-zinc-300 px-3 py-1 text-xs font-semibold text-zinc-600 dark:border-zinc-700 dark:text-zinc-400"
+                    <button
+                      type="button"
+                      aria-expanded={isExpanded}
+                      aria-controls={detailPanelId}
+                      onClick={() =>
+                        setExpandedProjectName((prev) =>
+                          prev === project.name ? null : project.name,
+                        )
+                      }
+                      className="rounded-full border border-zinc-300 px-4 py-2 text-xs font-semibold text-zinc-700 transition hover:border-zinc-900 hover:text-zinc-950 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                      {isExpanded
+                        ? t(uiCopy.projectDetailClose)
+                        : t(uiCopy.projectDetailOpen)}
+                    </button>
+                  </div>
 
-                {expandedProjectName === project.name ? (
-                  <div className="mt-7 space-y-7 border-t border-zinc-200 pt-7 text-sm leading-relaxed text-zinc-700 dark:border-zinc-800 dark:text-zinc-300">
-                    <section>
-                      <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
-                        {t(uiCopy.projectOverview)}
-                      </h4>
-                      <p className="mt-2">{t(project.overview)}</p>
-                    </section>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {[
+                      ...(project.techStack.backend ?? []),
+                      ...(project.techStack.ai ?? []),
+                      ...(project.techStack.frontend ?? []),
+                      ...(project.techStack.infra ?? []),
+                      ...(project.techStack.tools ?? []),
+                    ].map((tech) => (
+                      <span
+                        key={`${project.name}-${tech}`}
+                        className="rounded-full border border-zinc-300 px-3 py-1 text-xs font-semibold text-zinc-600 dark:border-zinc-700 dark:text-zinc-400"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
-                    <section>
-                      <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
-                        {t(uiCopy.projectRole)}
-                      </h4>
-                      <ul className="mt-2 list-disc space-y-1 pl-5">
-                        {project.role.map((item) => (
-                          <li key={`${project.name}-role-${item.ko}`}>{t(item)}</li>
-                        ))}
-                      </ul>
-                    </section>
+                  <div className="mt-7 flex min-h-11 flex-wrap items-center gap-3">
+                    <ExternalLink
+                      href={project.githubUrl}
+                      className="rounded-full border border-zinc-300 px-5 py-2 text-sm font-semibold text-zinc-700 transition hover:border-zinc-900 hover:text-zinc-950 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+                    >
+                      GitHub
+                    </ExternalLink>
+                    {project.demoUrl ? (
+                      <ExternalLink
+                        href={project.demoUrl}
+                        className="rounded-full border border-[var(--accent)] px-5 py-2 text-sm font-semibold text-[var(--accent)] transition hover:bg-[var(--accent)] hover:text-white dark:hover:text-zinc-950"
+                      >
+                        Demo
+                      </ExternalLink>
+                    ) : (
+                      <span className="rounded-full border border-zinc-200 bg-zinc-100 px-5 py-2 text-sm font-semibold text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-500">
+                        {t(uiCopy.demoPreparing)}
+                      </span>
+                    )}
+                    {project.reportUrl ? (
+                      <a
+                        href={project.reportUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full border border-[var(--accent)] px-5 py-2 text-sm font-semibold text-[var(--accent)] transition hover:bg-[var(--accent)] hover:text-white dark:hover:text-zinc-950"
+                      >
+                        {t(uiCopy.projectReport)}
+                      </a>
+                    ) : null}
+                  </div>
 
-                    <section>
-                      <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
-                        {t(uiCopy.projectFeatures)}
-                      </h4>
-                      <ul className="mt-2 list-disc space-y-1 pl-5">
-                        {project.features.map((item) => (
-                          <li key={`${project.name}-feature-${item.ko}`}>{t(item)}</li>
-                        ))}
-                      </ul>
-                    </section>
-
-                    <section>
-                      <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
-                        {t(uiCopy.projectTechStack)}
-                      </h4>
-                      <div className="mt-3 grid gap-3 md:grid-cols-2">
-                        {(project.techStack.backend?.length ?? 0) > 0 ? (
-                          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
-                            <p className="text-xs font-semibold text-zinc-500">
-                              {t(uiCopy.projectTechBackend)}
-                            </p>
-                            <ul className="mt-2 list-disc space-y-1 pl-5">
-                              {project.techStack.backend?.map((item) => (
-                                <li key={`${project.name}-backend-${item}`}>{item}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : null}
-                        {(project.techStack.ai?.length ?? 0) > 0 ? (
-                          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
-                            <p className="text-xs font-semibold text-zinc-500">
-                              {t(uiCopy.projectTechAi)}
-                            </p>
-                            <ul className="mt-2 list-disc space-y-1 pl-5">
-                              {project.techStack.ai?.map((item) => (
-                                <li key={`${project.name}-ai-${item}`}>{item}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : null}
-                        {(project.techStack.frontend?.length ?? 0) > 0 ? (
-                          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
-                            <p className="text-xs font-semibold text-zinc-500">
-                              {t(uiCopy.projectTechFrontend)}
-                            </p>
-                            <ul className="mt-2 list-disc space-y-1 pl-5">
-                              {project.techStack.frontend?.map((item) => (
-                                <li key={`${project.name}-frontend-${item}`}>{item}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : null}
-                        {(project.techStack.infra?.length ?? 0) > 0 ? (
-                          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
-                            <p className="text-xs font-semibold text-zinc-500">
-                              {t(uiCopy.projectTechInfra)}
-                            </p>
-                            <ul className="mt-2 list-disc space-y-1 pl-5">
-                              {project.techStack.infra?.map((item) => (
-                                <li key={`${project.name}-infra-${item}`}>{item}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : null}
-                        {(project.techStack.tools?.length ?? 0) > 0 ? (
-                          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
-                            <p className="text-xs font-semibold text-zinc-500">
-                              {t(uiCopy.projectTechTools)}
-                            </p>
-                            <ul className="mt-2 list-disc space-y-1 pl-5">
-                              {project.techStack.tools?.map((item) => (
-                                <li key={`${project.name}-tool-${item}`}>{item}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : null}
-                      </div>
-                    </section>
-
-                    <section>
-                      <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
-                        {t(uiCopy.projectContributions)}
-                      </h4>
-                      <ul className="mt-2 list-disc space-y-1 pl-5">
-                        {project.contributions.map((item) => (
-                          <li key={`${project.name}-contribution-${item.ko}`}>
-                            {t(item)}
-                          </li>
-                        ))}
-                      </ul>
-                    </section>
-
-                    {(project.troubleshooting.length ?? 0) > 0 ? (
+                  {isExpanded ? (
+                    <div
+                      id={detailPanelId}
+                      className="mt-7 space-y-7 border-t border-zinc-200 pt-7 text-sm leading-relaxed text-zinc-700 dark:border-zinc-800 dark:text-zinc-300"
+                    >
                       <section>
                         <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
-                          {t(uiCopy.projectTroubleshooting)}
+                          {t(uiCopy.projectOverview)}
                         </h4>
-                        <div className="mt-3 space-y-4">
-                          {project.troubleshooting.map((item) => (
-                            <article
-                              key={`${project.name}-trouble-${item.title.ko}`}
-                              className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950"
-                            >
-                              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                                {t(item.title)}
-                              </h5>
-                              <p className="mt-2">
-                                <span className="font-semibold">
-                                  {t(uiCopy.troubleshootingProblem)}:{" "}
-                                </span>
-                                {t(item.problem)}
-                              </p>
-                              <div className="mt-2">
-                                <p className="font-semibold">
-                                  {t(uiCopy.troubleshootingSolution)}:
-                                </p>
-                                <ul className="mt-1 list-disc space-y-1 pl-5">
-                                  {item.solution.map((line) => (
-                                    <li
-                                      key={`${project.name}-solution-${item.title.ko}-${line.ko}`}
-                                    >
-                                      {t(line)}
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                              <div className="mt-2">
-                                <p className="font-semibold">
-                                  {t(uiCopy.troubleshootingResult)}:
-                                </p>
-                                <ul className="mt-1 list-disc space-y-1 pl-5">
-                                  {item.result.map((line) => (
-                                    <li
-                                      key={`${project.name}-result-${item.title.ko}-${line.ko}`}
-                                    >
-                                      {t(line)}
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </article>
+                        <p className="mt-2">{t(project.overview)}</p>
+                      </section>
+
+                      <section>
+                        <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
+                          {t(uiCopy.projectRole)}
+                        </h4>
+                        <ul className="mt-2 list-disc space-y-1 pl-5">
+                          {project.role.map((item) => (
+                            <li key={`${project.name}-role-${item.ko}`}>{t(item)}</li>
                           ))}
+                        </ul>
+                      </section>
+
+                      <section>
+                        <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
+                          {t(uiCopy.projectFeatures)}
+                        </h4>
+                        <ul className="mt-2 list-disc space-y-1 pl-5">
+                          {project.features.map((item) => (
+                            <li key={`${project.name}-feature-${item.ko}`}>{t(item)}</li>
+                          ))}
+                        </ul>
+                      </section>
+
+                      <section>
+                        <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
+                          {t(uiCopy.projectTechStack)}
+                        </h4>
+                        <div className="mt-3 grid gap-3 md:grid-cols-2">
+                          {(project.techStack.backend?.length ?? 0) > 0 ? (
+                            <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
+                              <p className="text-xs font-semibold text-zinc-500">
+                                {t(uiCopy.projectTechBackend)}
+                              </p>
+                              <ul className="mt-2 list-disc space-y-1 pl-5">
+                                {project.techStack.backend?.map((item) => (
+                                  <li key={`${project.name}-backend-${item}`}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : null}
+                          {(project.techStack.ai?.length ?? 0) > 0 ? (
+                            <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
+                              <p className="text-xs font-semibold text-zinc-500">
+                                {t(uiCopy.projectTechAi)}
+                              </p>
+                              <ul className="mt-2 list-disc space-y-1 pl-5">
+                                {project.techStack.ai?.map((item) => (
+                                  <li key={`${project.name}-ai-${item}`}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : null}
+                          {(project.techStack.frontend?.length ?? 0) > 0 ? (
+                            <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
+                              <p className="text-xs font-semibold text-zinc-500">
+                                {t(uiCopy.projectTechFrontend)}
+                              </p>
+                              <ul className="mt-2 list-disc space-y-1 pl-5">
+                                {project.techStack.frontend?.map((item) => (
+                                  <li key={`${project.name}-frontend-${item}`}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : null}
+                          {(project.techStack.infra?.length ?? 0) > 0 ? (
+                            <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
+                              <p className="text-xs font-semibold text-zinc-500">
+                                {t(uiCopy.projectTechInfra)}
+                              </p>
+                              <ul className="mt-2 list-disc space-y-1 pl-5">
+                                {project.techStack.infra?.map((item) => (
+                                  <li key={`${project.name}-infra-${item}`}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : null}
+                          {(project.techStack.tools?.length ?? 0) > 0 ? (
+                            <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950">
+                              <p className="text-xs font-semibold text-zinc-500">
+                                {t(uiCopy.projectTechTools)}
+                              </p>
+                              <ul className="mt-2 list-disc space-y-1 pl-5">
+                                {project.techStack.tools?.map((item) => (
+                                  <li key={`${project.name}-tool-${item}`}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : null}
                         </div>
                       </section>
-                    ) : null}
 
-                    <section>
-                      <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
-                        {t(uiCopy.projectAchievement)}
-                      </h4>
-                      <ul className="mt-2 list-disc space-y-1 pl-5">
-                        {project.achievement.map((item) => (
-                          <li key={`${project.name}-achievement-${item.ko}`}>{t(item)}</li>
-                        ))}
-                      </ul>
-                    </section>
+                      <section>
+                        <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
+                          {t(uiCopy.projectContributions)}
+                        </h4>
+                        <ul className="mt-2 list-disc space-y-1 pl-5">
+                          {project.contributions.map((item) => (
+                            <li key={`${project.name}-contribution-${item.ko}`}>
+                              {t(item)}
+                            </li>
+                          ))}
+                        </ul>
+                      </section>
 
-                    <section>
-                      <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
-                        {t(uiCopy.projectLearning)}
-                      </h4>
-                      <ul className="mt-2 list-disc space-y-1 pl-5">
-                        {project.learnings.map((item) => (
-                          <li key={`${project.name}-learning-${item.ko}`}>{t(item)}</li>
-                        ))}
-                      </ul>
-                    </section>
-                  </div>
-                ) : null}
+                      {(project.troubleshooting.length ?? 0) > 0 ? (
+                        <section>
+                          <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
+                            {t(uiCopy.projectTroubleshooting)}
+                          </h4>
+                          <div className="mt-3 space-y-4">
+                            {project.troubleshooting.map((item) => (
+                              <article
+                                key={`${project.name}-trouble-${item.title.ko}`}
+                                className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-950"
+                              >
+                                <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                                  {t(item.title)}
+                                </h5>
+                                <p className="mt-2">
+                                  <span className="font-semibold">
+                                    {t(uiCopy.troubleshootingProblem)}:{" "}
+                                  </span>
+                                  {t(item.problem)}
+                                </p>
+                                <div className="mt-2">
+                                  <p className="font-semibold">
+                                    {t(uiCopy.troubleshootingSolution)}:
+                                  </p>
+                                  <ul className="mt-1 list-disc space-y-1 pl-5">
+                                    {item.solution.map((line) => (
+                                      <li
+                                        key={`${project.name}-solution-${item.title.ko}-${line.ko}`}
+                                      >
+                                        {t(line)}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                                <div className="mt-2">
+                                  <p className="font-semibold">
+                                    {t(uiCopy.troubleshootingResult)}:
+                                  </p>
+                                  <ul className="mt-1 list-disc space-y-1 pl-5">
+                                    {item.result.map((line) => (
+                                      <li
+                                        key={`${project.name}-result-${item.title.ko}-${line.ko}`}
+                                      >
+                                        {t(line)}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </article>
+                            ))}
+                          </div>
+                        </section>
+                      ) : null}
 
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <ExternalLink
-                    href={project.githubUrl}
-                    className="rounded-full border border-zinc-300 px-5 py-2 text-sm font-semibold text-zinc-700 transition hover:border-zinc-900 hover:text-zinc-950 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
-                  >
-                    GitHub
-                  </ExternalLink>
-                  {project.demoUrl ? (
-                    <ExternalLink
-                      href={project.demoUrl}
-                      className="rounded-full border border-[var(--accent)] px-5 py-2 text-sm font-semibold text-[var(--accent)] transition hover:bg-[var(--accent)] hover:text-white dark:hover:text-zinc-950"
-                    >
-                      Demo
-                    </ExternalLink>
-                  ) : (
-                    <span className="rounded-full border border-zinc-200 bg-zinc-100 px-5 py-2 text-sm font-semibold text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-500">
-                      {t(uiCopy.demoPreparing)}
-                    </span>
-                  )}
-                  {project.reportUrl ? (
-                    <a
-                      href={project.reportUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full border border-[var(--accent)] px-5 py-2 text-sm font-semibold text-[var(--accent)] transition hover:bg-[var(--accent)] hover:text-white dark:hover:text-zinc-950"
-                    >
-                      {t(uiCopy.projectReport)}
-                    </a>
+                      <section>
+                        <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
+                          {t(uiCopy.projectAchievement)}
+                        </h4>
+                        <ul className="mt-2 list-disc space-y-1 pl-5">
+                          {project.achievement.map((item) => (
+                            <li key={`${project.name}-achievement-${item.ko}`}>{t(item)}</li>
+                          ))}
+                        </ul>
+                      </section>
+
+                      <section>
+                        <h4 className="text-xs font-semibold tracking-[0.16em] text-zinc-500">
+                          {t(uiCopy.projectLearning)}
+                        </h4>
+                        <ul className="mt-2 list-disc space-y-1 pl-5">
+                          {project.learnings.map((item) => (
+                            <li key={`${project.name}-learning-${item.ko}`}>{t(item)}</li>
+                          ))}
+                        </ul>
+                      </section>
+                    </div>
                   ) : null}
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </section>
 
