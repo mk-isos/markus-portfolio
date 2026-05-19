@@ -297,6 +297,112 @@ export const projects: Project[] = [
     status: text("완료", "Completed"),
   },
   {
+    name: "다독다독 × Kanana-o",
+    oneLiner: text(
+      "그림책을 보고 듣고 말하며 감정을 이해하는 AI 독서 친구 데모",
+      "AI reading companion demo that helps children understand emotions through picture books",
+    ),
+    overview: text(
+      "Kanana-o 옴니모달 API를 활용해 발달장애 아동이 그림책을 보고 듣고 말하며 감정을 이해할 수 있도록 돕는 AI 독서 친구 데모 프로젝트입니다. 그림책 이미지 분석 OCR 기반 원문 추출 기초 표준 심화 수준별 문장 변환 TTS 기반 읽어주기 멀티턴 대화 보호자 리포트 기능을 실제 웹앱 형태로 구현했습니다.",
+      "An AI reading companion demo built with Kanana-o multimodal API to help children understand emotions through picture books. The project includes image-based OCR analysis, reading-level adaptation, TTS storytelling, multi-turn conversation, and parent reports in a real web application flow.",
+    ),
+    role: [
+      text("서비스 기획 및 UX 설계", "Service planning and UX design"),
+      text(
+        "Kanana-o API 연동 및 멀티턴 대화 구현",
+        "Kanana-o API integration and multi-turn conversation implementation",
+      ),
+      text(
+        "Next.js 기반 프론트엔드 개발 및 배포",
+        "Frontend development and deployment with Next.js",
+      ),
+      text(
+        "Prompt Engineering 및 fallback 구조 설계",
+        "Prompt engineering and fallback architecture design",
+      ),
+    ],
+    features: [
+      text("그림책 이미지 기반 OCR 및 장면 분석", "OCR and scene understanding from picture-book images"),
+      text("기초 / 표준 / 심화 수준별 문장 변환", "Reading-level adaptation (basic / standard / advanced)"),
+      text("Kanana TTS 기반 이야기 읽어주기", "Kanana TTS powered storytelling"),
+      text("음성 답변 기반 멀티턴 대화", "Multi-turn conversation with voice input"),
+      text("보호자용 독서 활동 리포트 생성", "Parent activity report generation"),
+      text("모바일 환경 최적화 및 fallback UX 설계", "Mobile-first UX and fallback architecture"),
+    ],
+    techStack: {
+      backend: ["Next.js API Route"],
+      ai: ["Kanana-o API", "OCR", "TTS", "Multi-turn Conversation"],
+      frontend: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      infra: ["Vercel"],
+      tools: ["MediaRecorder", "Web Speech API", "SpeechSynthesis", "GitHub"],
+    },
+    contributions: [
+      text(
+        "발달장애 아동 대상 AI 독서 친구 서비스 UX 설계",
+        "Designed an AI reading companion UX for children with developmental disabilities",
+      ),
+      text(
+        "그림책 기반 멀티턴 대화 흐름 및 상태 관리 구현",
+        "Implemented picture-book based multi-turn conversation flow and state management",
+      ),
+      text(
+        "Kanana-o API 기반 OCR / TTS / 질문 생성 기능 연동",
+        "Integrated OCR, TTS, and question generation using Kanana-o API",
+      ),
+      text("모바일 환경 음성 fallback 및 오디오 UX 최적화", "Optimized mobile audio UX with fallback handling"),
+      text("Vercel 기반 실제 배포 및 GitHub 문서화", "Deployed on Vercel and documented project on GitHub"),
+    ],
+    troubleshooting: [
+      {
+        title: text("모바일 음성 UX 충돌 문제", "Mobile audio UX conflict issue"),
+        problem: text(
+          "모바일 브라우저에서 TTS 화면 녹화 MediaRecorder가 동시에 실행될 때 음성이 끊기거나 충돌하는 문제가 발생했습니다.",
+          "Audio conflicts occurred when TTS, screen recording, and MediaRecorder were used simultaneously on mobile browsers.",
+        ),
+        solution: [
+          text("SpeechSynthesis fallback 추가", "Added SpeechSynthesis fallback"),
+          text("Audio Mode Standard 테스트", "Tested Standard audio mode"),
+          text("읽어주기 중복 실행 방지", "Prevented duplicated TTS execution"),
+        ],
+        result: [
+          text(
+            "모바일 환경에서 더 안정적인 음성 대화 UX 확보",
+            "Improved mobile audio stability",
+          ),
+          text("TTS 실패 시 fallback 유지", "Maintained TTS fallback"),
+          text(
+            "데모 영상 촬영 가능 상태 개선",
+            "Enabled stable demo recording workflow",
+          ),
+        ],
+      },
+    ],
+    achievement: [
+      text("Kanana-o API 기반 AI 독서 친구 MVP 실제 배포 완료", "Successfully deployed an AI reading companion MVP using Kanana-o API"),
+      text(
+        "이미지·음성·멀티턴 대화를 결합한 옴니모달 서비스 흐름 구현",
+        "Implemented an omni-modal service flow combining image, voice, and multi-turn conversation",
+      ),
+    ],
+    learnings: [
+      text(
+        "옴니모달 AI 서비스에서는 기능보다 사용자 경험 설계가 더 중요하다는 점을 배웠습니다.",
+        "Learned that UX design is more important than isolated AI features in omni-modal services.",
+      ),
+      text(
+        "실제 AI 서비스에서는 fallback 구조와 안정성이 필수라는 점을 경험했습니다.",
+        "Experienced the importance of fallback architecture and stability in real AI services.",
+      ),
+      text(
+        "멀티턴 대화 상태 관리와 음성 UX 설계의 복잡성을 직접 체감했습니다.",
+        "Learned the complexity of multi-turn conversation state management and voice UX design.",
+      ),
+    ],
+    githubUrl: "https://github.com/mk-isos/dadokdadok-kanana",
+    demoUrl: "https://dadokdadok-kanana.vercel.app",
+    status: text("완료", "Completed"),
+  },
+  {
     name: "To Gather – 지역 배달 그룹 모집 커뮤니티 애플리케이션",
     oneLiner: text(
       "지역 주민 간 소통과 배달 비용 절감을 위해 이웃 간 그룹 매칭 및 커뮤니티 기능을 제공하는 플랫폼",
