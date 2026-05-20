@@ -189,6 +189,7 @@ export type Project = {
   learnings: LocalizedText[];
   githubUrl: string;
   demoUrl?: string;
+  deployUrl?: string;
   reportUrl?: string;
   status: LocalizedText;
 };
@@ -385,7 +386,8 @@ export const projects: Project[] = [
       ),
     ],
     githubUrl: "https://github.com/mk-isos/dadokdadok-kanana",
-    demoUrl: "https://dadokdadok-kanana.vercel.app",
+    demoUrl: "https://www.youtube.com/watch?v=eYhslwwuR5M",
+    deployUrl: "https://dadokdadok-kanana.vercel.app",
     status: text("완료", "Completed"),
   },
   {
@@ -1084,6 +1086,7 @@ export const uiCopy = {
   projectTechTools: text("Tools", "Tools"),
   projectDetailOpen: text("상세보기", "View Details"),
   projectDetailClose: text("접기", "Collapse"),
+  projectDeploy: text("Live Site", "Live Site"),
   projectReport: text("Project Report", "Project Report"),
   troubleshootingProblem: text("문제", "Problem"),
   troubleshootingSolution: text("해결", "Solution"),

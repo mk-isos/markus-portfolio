@@ -580,6 +580,14 @@ export function PortfolioPage() {
                         {t(uiCopy.demoPreparing)}
                       </span>
                     )}
+                    {project.deployUrl ? (
+                      <ExternalLink
+                        href={project.deployUrl}
+                        className="rounded-full border border-[var(--accent)] px-5 py-2 text-sm font-semibold text-[var(--accent)] transition hover:bg-[var(--accent)] hover:text-white dark:hover:text-zinc-950"
+                      >
+                        {t(uiCopy.projectDeploy)}
+                      </ExternalLink>
+                    ) : null}
                     {project.reportUrl ? (
                       <a
                         href={project.reportUrl}
