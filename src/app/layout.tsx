@@ -6,6 +6,7 @@ import { Providers } from "@/app/providers";
 
 const metadataDescription = `${siteMeta.description.ko} / ${siteMeta.description.en}`;
 const googleAnalyticsId = "G-SK3DL1G9QK";
+const googleAdsenseClient = "ca-pub-2791911148702020";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.siteUrl),
@@ -63,6 +64,12 @@ export default function RootLayout({
           gtag('config', '${googleAnalyticsId}');
         `}
       </Script>
+      <Script
+        async
+        crossOrigin="anonymous"
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${googleAdsenseClient}`}
+        strategy="afterInteractive"
+      />
       <body className="antialiased">
         <Providers>{children}</Providers>
       </body>
