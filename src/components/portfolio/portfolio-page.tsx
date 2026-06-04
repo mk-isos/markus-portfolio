@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   useDeferredValue,
   useEffect,
@@ -1223,7 +1224,24 @@ export function PortfolioPage() {
                 </div>
               )}
             </div>
-            <p className="mt-12 text-sm text-zinc-500">
+            <nav
+              aria-label="Footer navigation"
+              className="mt-12 flex flex-wrap justify-center gap-x-5 gap-y-3 text-sm font-medium text-zinc-500 lg:justify-start"
+            >
+              <a href="#about" className="transition hover:text-zinc-100">
+                About
+              </a>
+              <a href="#contact" className="transition hover:text-zinc-100">
+                Contact
+              </a>
+              <Link href="/privacy" className="transition hover:text-zinc-100">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="transition hover:text-zinc-100">
+                Terms of Service
+              </Link>
+            </nav>
+            <p className="mt-6 text-sm text-zinc-500">
               © 2025 Markus. {t(uiCopy.footer)}
             </p>
           </div>

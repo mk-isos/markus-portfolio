@@ -13,7 +13,7 @@ export const siteMeta = {
     "AI와 백엔드로 문제를 해결하는 개발자 Markus의 개인 브랜딩 포트폴리오 사이트",
     "A personal branding portfolio site for Markus, a developer solving problems with AI and backend systems.",
   ),
-  siteUrl: "https://markus-portfolio.vercel.app",
+  siteUrl: "https://markus-portfolio-mu.vercel.app",
   keywords: [
     "Markus",
     "Backend Developer",

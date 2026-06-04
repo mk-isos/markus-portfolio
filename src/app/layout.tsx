@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   },
   description: metadataDescription,
   keywords: siteMeta.keywords,
+  alternates: {
+    canonical: siteMeta.siteUrl,
+  },
   openGraph: {
     title: siteMeta.title,
     description: metadataDescription,
