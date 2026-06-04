@@ -98,6 +98,9 @@ export const metadata: Metadata = {
   verification: {
     google: googleSiteVerification,
   },
+  other: {
+    "google-adsense-account": googleAdsenseClient,
+  },
 };
 
 export default function RootLayout({
@@ -120,12 +123,6 @@ export default function RootLayout({
             gtag('config', '${googleAnalyticsId}');
           `}
         </Script>
-        <Script
-          async
-          crossOrigin="anonymous"
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${googleAdsenseClient}`}
-          strategy="afterInteractive"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
