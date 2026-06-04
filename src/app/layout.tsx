@@ -1,13 +1,50 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import { siteMeta } from "@/data/portfolio";
+import { links, siteMeta } from "@/data/portfolio";
 import { Providers } from "@/app/providers";
 
 const metadataDescription = `${siteMeta.description.ko} / ${siteMeta.description.en}`;
 const googleAnalyticsId = "G-SK3DL1G9QK";
 const googleAdsenseClient = "ca-pub-2791911148702020";
 const googleSiteVerification = "_lWp7KPNaujVMOdegNUBPPTQAWcoHZGO3GYbU2lO6lM";
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Markus",
+    url: siteMeta.siteUrl,
+    jobTitle: "Backend & AI Developer",
+    description: metadataDescription,
+    email: links.email,
+    knowsAbout: [
+      "Backend Development",
+      "Artificial Intelligence",
+      "Spring Boot",
+      "LLM Applications",
+      "Technical Writing",
+    ],
+    sameAs: [
+      links.github,
+      links.blog,
+      links.instagramMain,
+      links.instagramSub,
+      links.linkedin,
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Markus Portfolio",
+    url: siteMeta.siteUrl,
+    inLanguage: ["ko-KR", "en"],
+    description: metadataDescription,
+    publisher: {
+      "@type": "Person",
+      name: "Markus",
+    },
+  },
+];
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.siteUrl),
@@ -17,6 +54,17 @@ export const metadata: Metadata = {
   },
   description: metadataDescription,
   keywords: siteMeta.keywords,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   alternates: {
     canonical: siteMeta.siteUrl,
   },
@@ -76,6 +124,10 @@ export default function RootLayout({
         crossOrigin="anonymous"
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${googleAdsenseClient}`}
         strategy="afterInteractive"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <body className="antialiased">
         <Providers>{children}</Providers>
