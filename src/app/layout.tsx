@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { siteMeta } from "@/data/portfolio";
 import { Providers } from "@/app/providers";
 
 const metadataDescription = `${siteMeta.description.ko} / ${siteMeta.description.en}`;
+const googleAnalyticsId = "G-SK3DL1G9QK";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.siteUrl),
@@ -49,6 +51,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${googleAnalyticsId}');
+        `}
+      </Script>
       <body className="antialiased">
         <Providers>{children}</Providers>
       </body>
