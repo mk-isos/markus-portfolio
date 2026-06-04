@@ -7,6 +7,7 @@ import { Providers } from "@/app/providers";
 const metadataDescription = `${siteMeta.description.ko} / ${siteMeta.description.en}`;
 const googleAnalyticsId = "G-SK3DL1G9QK";
 const googleAdsenseClient = "ca-pub-2791911148702020";
+const googleSiteVerification = "psECK4pKSJH-r6w_GzfHAKcW0dDCm44NMbk8Lfx5zag";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.siteUrl),
@@ -42,6 +43,9 @@ export const metadata: Metadata = {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
     apple: "/icon.svg",
+  },
+  verification: {
+    google: googleSiteVerification,
   },
 };
 
