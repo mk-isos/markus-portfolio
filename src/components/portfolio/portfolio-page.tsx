@@ -35,7 +35,7 @@ import {
   type LocalizedText,
   type NavigationId,
 } from "@/data/portfolio";
-import { CertificateModal } from "@/components/common/certificate-modal";
+import { EvidenceModal } from "@/components/common/evidence-modal";
 import { EvidenceLinkButton } from "@/components/common/evidence-link-button";
 import { useSitePreferences } from "@/components/portfolio/site-preferences-context";
 
@@ -854,10 +854,48 @@ export function PortfolioPage() {
           <ul className="grid gap-3 md:grid-cols-2">
             {activities.map((activity) => (
               <li
-                key={activity.ko}
-                className="rounded-2xl border border-zinc-200 bg-white/90 px-5 py-4 text-sm text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300"
+                key={activity.title.ko}
+                className="flex flex-wrap items-start justify-between gap-4 rounded-2xl border border-zinc-200 bg-white/90 px-5 py-4 text-sm text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300"
               >
-                {t(activity)}
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
+                    {t(activity.title)}
+                  </h3>
+                  {activity.period ? (
+                    <p className="mt-1 text-xs text-zinc-500">{activity.period}</p>
+                  ) : null}
+                  {activity.description ? (
+                    <p className="mt-2 leading-relaxed text-zinc-600 dark:text-zinc-400">
+                      {t(activity.description)}
+                    </p>
+                  ) : null}
+                  {activity.organizer ? (
+                    <p className="mt-1 text-xs text-zinc-500">{t(activity.organizer)}</p>
+                  ) : null}
+                </div>
+                {activity.evidence?.type === "image" ? (
+                  <EvidenceModal
+                    imageSrc={activity.evidence.src}
+                    imageAlt={t(activity.evidence.alt)}
+                    imageWidth={activity.evidence.width}
+                    imageHeight={activity.evidence.height}
+                    title={t(activity.title)}
+                    triggerLabel={t(activity.evidence.label)}
+                    closeLabel={language === "ko" ? "닫기" : "Close"}
+                    zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                    zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                    fallbackMessage={
+                      language === "ko"
+                        ? "증빙 이미지를 불러올 수 없습니다."
+                        : "The evidence image could not be loaded."
+                    }
+                  />
+                ) : activity.evidence?.type === "link" ? (
+                  <EvidenceLinkButton
+                    href={activity.evidence.href}
+                    label={t(activity.evidence.label)}
+                  />
+                ) : null}
               </li>
             ))}
           </ul>
@@ -915,13 +953,13 @@ export function PortfolioPage() {
                   )}
                 </div>
                 {certification.evidenceImage ? (
-                  <CertificateModal
+                  <EvidenceModal
                     imageSrc={certification.evidenceImage.src}
                     imageAlt={t(certification.evidenceImage.alt)}
                     imageWidth={certification.evidenceImage.width}
                     imageHeight={certification.evidenceImage.height}
                     title={t(certification.name)}
-                    triggerLabel={language === "ko" ? "증빙 보기" : "Certificate"}
+                    triggerLabel={language === "ko" ? "증빙" : "Certificate"}
                     closeLabel={language === "ko" ? "닫기" : "Close"}
                     zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
                     zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-type CertificateModalProps = {
+type EvidenceModalProps = {
   imageSrc?: string;
   imageAlt: string;
   imageWidth: number;
@@ -16,7 +16,7 @@ type CertificateModalProps = {
   fallbackMessage: string;
 };
 
-export function CertificateModal({
+export function EvidenceModal({
   imageSrc,
   imageAlt,
   imageWidth,
@@ -27,7 +27,7 @@ export function CertificateModal({
   zoomInLabel,
   zoomOutLabel,
   fallbackMessage,
-}: CertificateModalProps) {
+}: EvidenceModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [imageFailed, setImageFailed] = useState(false);
