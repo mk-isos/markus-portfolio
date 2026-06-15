@@ -998,6 +998,33 @@ export function PortfolioPage() {
                 <p className="mt-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
                   {t(award.detail)}
                 </p>
+                {award.evidence?.type === "image" ? (
+                  <div className="mt-4">
+                    <EvidenceModal
+                      imageSrc={award.evidence.src}
+                      imageAlt={t(award.evidence.alt)}
+                      imageWidth={award.evidence.width}
+                      imageHeight={award.evidence.height}
+                      title={t(award.title)}
+                      triggerLabel={t(award.evidence.label)}
+                      closeLabel={language === "ko" ? "닫기" : "Close"}
+                      zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                      zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                      fallbackMessage={
+                        language === "ko"
+                          ? "증빙 이미지를 불러올 수 없습니다."
+                          : "The evidence image could not be loaded."
+                      }
+                    />
+                  </div>
+                ) : award.evidence?.type === "link" ? (
+                  <div className="mt-4">
+                    <EvidenceLinkButton
+                      href={award.evidence.href}
+                      label={t(award.evidence.label)}
+                    />
+                  </div>
+                ) : null}
               </article>
             ))}
           </div>

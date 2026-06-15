@@ -753,11 +753,29 @@ export const certifications: Certification[] = [
   },
 ];
 
-export const awards = [
+export type Award = {
+  title: LocalizedText;
+  detail: LocalizedText;
+  date: string;
+  evidence?: Evidence;
+};
+
+export const awards: Award[] = [
   {
     title: text("SW중심대학사업단 AI 오픈소스 전문프로젝트", "SW-Centered University AI Open Source Project"),
     detail: text("영어발표회 최우수상 수상", "Grand Prize in English Presentation"),
     date: "2024.06",
+    evidence: {
+      type: "image",
+      label: text("증빙", "Evidence"),
+      src: "/awards/sw-ai-open-source.jpeg",
+      width: 1206,
+      height: 1660,
+      alt: text(
+        "SW중심대학사업단 AI 오픈소스 전문프로젝트 최우수상 증빙",
+        "SW-Centered University AI Open Source Project award evidence",
+      ),
+    },
   },
   {
     title: text("2024 새싹 해커톤", "2024 Saessak Hackathon"),
@@ -766,6 +784,14 @@ export const awards = [
       "Finalist (Hosted by Seoul Metropolitan Government, SBA, and Google)",
     ),
     date: "2024.07",
+    evidence: {
+      type: "image",
+      label: text("증빙", "Evidence"),
+      src: "/awards/saessak-hackathon.jpeg",
+      width: 1193,
+      height: 1658,
+      alt: text("2024 새싹 해커톤 본선 진출 증빙", "2024 Saessak Hackathon finalist evidence"),
+    },
   },
   {
     title: text("2024 AI 메이커톤 경진대회", "2024 AI Makathon Competition"),
@@ -774,6 +800,14 @@ export const awards = [
       "Grand Prize (Hosted by Chungbuk Industrial AI Research Center)",
     ),
     date: "2024.09",
+    evidence: {
+      type: "image",
+      label: text("증빙", "Evidence"),
+      src: "/awards/ai-makerthon.jpeg",
+      width: 1206,
+      height: 1642,
+      alt: text("2024 AI 메이커톤 경진대회 최우수상 증빙", "2024 AI Makerthon award evidence"),
+    },
   },
   {
     title: text("2024 공개 SW 개발자대회", "2024 Open Source Developer Competition"),
@@ -782,6 +816,17 @@ export const awards = [
       "Finalist and Excellent Project Selection (MSIT / NIPA)",
     ),
     date: "2024.11",
+    evidence: {
+      type: "image",
+      label: text("증빙", "Evidence"),
+      src: "/awards/public-sw-contest.png",
+      width: 1174,
+      height: 1576,
+      alt: text(
+        "2024 공개 SW 개발자대회 본선 진출 및 우수작 선정 증빙",
+        "2024 Open Source Developer Competition selection evidence",
+      ),
+    },
   },
 ];
 
