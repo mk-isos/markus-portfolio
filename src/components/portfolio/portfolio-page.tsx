@@ -35,6 +35,7 @@ import {
   type LocalizedText,
   type NavigationId,
 } from "@/data/portfolio";
+import { CertificateModal } from "@/components/common/certificate-modal";
 import { EvidenceLinkButton } from "@/components/common/evidence-link-button";
 import { useSitePreferences } from "@/components/portfolio/site-preferences-context";
 
@@ -901,16 +902,36 @@ export function PortfolioPage() {
             {certifications.map((certification) => (
               <article
                 key={certification.name.ko}
-                className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
+                className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
               >
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                  {t(certification.name)}
-                </h3>
-                {(certification.issuer || certification.date) && (
-                  <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    {[certification.issuer, certification.date].filter(Boolean).join(" · ")}
-                  </p>
-                )}
+                <div>
+                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                    {t(certification.name)}
+                  </h3>
+                  {(certification.issuer || certification.date) && (
+                    <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                      {[certification.issuer, certification.date].filter(Boolean).join(" · ")}
+                    </p>
+                  )}
+                </div>
+                {certification.evidenceImage ? (
+                  <CertificateModal
+                    imageSrc={certification.evidenceImage.src}
+                    imageAlt={t(certification.evidenceImage.alt)}
+                    imageWidth={certification.evidenceImage.width}
+                    imageHeight={certification.evidenceImage.height}
+                    title={t(certification.name)}
+                    triggerLabel={language === "ko" ? "증빙 보기" : "Certificate"}
+                    closeLabel={language === "ko" ? "닫기" : "Close"}
+                    zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                    zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                    fallbackMessage={
+                      language === "ko"
+                        ? "자격증 이미지를 불러올 수 없습니다."
+                        : "The certificate image could not be loaded."
+                    }
+                  />
+                ) : null}
               </article>
             ))}
           </div>

@@ -630,6 +630,12 @@ export type Certification = {
   name: LocalizedText;
   issuer: string;
   date: string;
+  evidenceImage?: {
+    src: string;
+    width: number;
+    height: number;
+    alt: LocalizedText;
+  };
 };
 
 export const certifications: Certification[] = [
@@ -637,11 +643,23 @@ export const certifications: Certification[] = [
     name: text("정보처리기사", "Engineer Information Processing"),
     issuer: "",
     date: "2025",
+    evidenceImage: {
+      src: "/certifications/info.png",
+      width: 880,
+      height: 1238,
+      alt: text("정보처리기사 자격증", "Engineer Information Processing certificate"),
+    },
   },
   {
     name: text("SQLD", "SQLD"),
     issuer: "",
     date: "2025",
+    evidenceImage: {
+      src: "/certifications/sqld.jpg",
+      width: 793,
+      height: 1123,
+      alt: text("SQLD 자격증", "SQLD certificate"),
+    },
   },
 ];
 
