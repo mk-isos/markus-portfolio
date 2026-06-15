@@ -591,6 +591,10 @@ export const experiences = [
       "PHP, phpMyAdmin, FileZilla 등 실제 서비스 환경에서 사용되는 웹 개발 도구를 직접 다루며 CMS 기반 콘텐츠 관리와 서버 운영 흐름을 이해했습니다. 또한 실무에서 발생하는 문제를 해결하며 개발 협업 프로세스를 경험했습니다.",
       "I worked directly with production web tools such as PHP, phpMyAdmin, and FileZilla, gaining hands-on understanding of CMS-based content management and server operation workflows. I also experienced real development collaboration by solving practical issues in a working environment.",
     ),
+    evidence: {
+      href: "https://mkisos.tistory.com/category/%EC%BD%94%EB%94%A9%20%EB%8F%84%EA%B5%AC/%EC%9D%B8%ED%84%B4%EC%8B%AD",
+      label: text("인턴십 기록 보기", "Experience Log"),
+    },
   },
 ];
 

@@ -35,6 +35,7 @@ import {
   type LocalizedText,
   type NavigationId,
 } from "@/data/portfolio";
+import { EvidenceLinkButton } from "@/components/common/evidence-link-button";
 import { useSitePreferences } from "@/components/portfolio/site-preferences-context";
 
 const OBSERVED_SECTION_IDS: NavigationId[] = [
@@ -829,6 +830,14 @@ export function PortfolioPage() {
                   <p className="mt-4 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
                     {t(item.description)}
                   </p>
+                  {item.evidence ? (
+                    <div className="mt-5">
+                      <EvidenceLinkButton
+                        href={item.evidence.href}
+                        label={t(item.evidence.label)}
+                      />
+                    </div>
+                  ) : null}
                 </article>
               ))}
             </div>
