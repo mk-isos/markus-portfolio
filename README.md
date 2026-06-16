@@ -1,110 +1,116 @@
-https://markus-portfolio-mu.vercel.app
+# Markus Portfolio
 
-# Markus Personal Branding Site (V1)
+> Backend & AI Developer
+> Building reliable backend systems and AI-powered products with a fail-fast mindset.
 
-Next.js + TypeScript + Tailwind CSS 기반의 원페이지 개인 브랜딩/이력서/포트폴리오 사이트입니다.
+## Live Site
 
-주요 기능:
+[https://markus-portfolio-mu.vercel.app](https://markus-portfolio-mu.vercel.app/)
 
-- 한국어/영어 즉시 전환 (KR/EN 토글 + localStorage 유지)
-- 라이트/다크 모드 전환 (OS 초기 감지 + localStorage 유지)
-- 데이터/텍스트 분리 구조 (`src/data/portfolio.ts`)
+---
 
-## 실행 방법
+## About
 
-```bash
-npm run dev
-```
+This is my personal portfolio and branding website as **Markus**, a Backend & AI Developer focused on turning curiosity into execution.
 
-브라우저에서 `http://localhost:3000`을 열면 확인할 수 있습니다.
+The site introduces my projects, experience, activities, awards, certifications, content, and technical direction. It is designed to show not only what I have built, but also how I learn, collaborate, document, and grow through real-world projects and community activities.
 
-## 빌드/검증
+My core direction is simple:
 
-```bash
-npm run lint
-npm run build
-```
+- Build practical products with backend systems and AI.
+- Move fast, learn from feedback, and improve continuously.
+- Share the learning process through writing and content.
+- Create positive influence through technology and collaboration.
 
-## 주요 파일 구조
+---
 
-- `src/app/page.tsx`
-  - 실제 랜딩 페이지 진입점
-- `src/components/portfolio/portfolio-page.tsx`
-  - Hero, About, Projects, Experience, Content, Resume, Contact 등 전체 섹션 UI
-  - sticky header / active section / mobile menu / language toggle / theme toggle / content tab 포함
-- `src/data/portfolio.ts`
-  - 이름, 소개, 기술 스택, 프로젝트, 경험, 수상, 콘텐츠 링크, 연락처 등 데이터 전부
-  - 다국어 텍스트는 `ko`, `en` 필드로 관리
-  - **사이트 내용 수정은 이 파일만 편집하면 대부분 반영됨**
-- `src/components/portfolio/site-preferences-context.tsx`
-  - 언어/테마 전역 상태 및 localStorage 저장 로직
-- `src/app/providers.tsx`
-  - 전역 Provider 주입
-- `src/app/layout.tsx`
-  - SEO, Open Graph, Twitter 메타데이터, 파비콘 설정
-- `src/app/globals.css`
-  - 글로벌 스타일, 라이트/다크 컬러 변수, 타이포그래피
+## Highlights
 
-## 내 정보 수정 포인트
+- Backend & AI-focused personal branding
+- Project cards with detailed contributions, troubleshooting, and learnings
+- KR / EN language toggle
+- Light / Dark mode support
+- Awards, certifications, experience, and activity evidence viewer
+- Activity photo gallery and external article links
+- Content hub connected to technical writing, book reviews, and life experiments
+- Responsive design optimized for desktop and mobile
 
-### 1) 기본 프로필/링크
+---
 
-- 파일: `src/data/portfolio.ts`
-- 수정 키:
-  - `hero`
-  - `links`
-  - `aboutParagraphs`
-  - `focusAreas`
-- 다국어 텍스트 형식:
-  - 예: `{ ko: "한국어 문장", en: "English sentence" }`
+## Featured Areas
 
-### 2) 프로젝트/경험/활동/수상
+### Projects
 
-- 파일: `src/data/portfolio.ts`
-- 수정 키:
-  - `projects`
-  - `experiences`
-  - `activities`
-  - `awards`
-  - `education`
+The project section focuses on problem-solving, ownership, and learning. Each project is structured around the problem, role, tech stack, contribution, troubleshooting, achievement, and what I learned.
 
-### 3) 콘텐츠 허브(Talk / Articles / Books)
+Representative projects include:
 
-- 파일: `src/data/portfolio.ts`
-- 수정 키:
-  - `contentItems`
-  - `contentCategories`
-- 카테고리 기준:
-  - `stories`, `articles`, `books`
+- **Dadokdadok × Kanana-o**: AI reading companion demo using Kanana-o multimodal API
+- **Co-Labor**: Foreign worker support platform with backend systems and RAG-based AI chatbot
+- **To Gather**: Local delivery group matching and community application
 
-### 4) Resume PDF 연결
+### Experience & Activities
 
-1. 이력서 파일을 `public/resume.pdf`로 추가
-2. `src/data/portfolio.ts`의 `resume.isReady` 값을 `true`로 변경
-3. 필요 시 `resume.updatedAt` 날짜 수정
+The portfolio includes hands-on internship experience, student organization leadership, ambassador activities, reviewer programs, volunteer work, and technical community involvement.
 
-### 5) 갤러리 이미지 교체
+Many activities include evidence images, certificates, external records, or photo galleries to make the portfolio easier to verify and understand.
 
-- 기본 placeholder 파일:
-  - `public/gallery/placeholder-project.svg`
-  - `public/gallery/placeholder-community.svg`
-  - `public/gallery/placeholder-routine.svg`
-- 교체 방법:
-  1. 실제 이미지 파일을 `public/gallery/`에 추가
-  2. `src/data/portfolio.ts`의 `galleryItems[].image` 경로를 새 파일명으로 변경
+### Content
 
-## 배포 팁 (Vercel)
+I believe documentation is not just a personal habit, but a starting point for influence.
 
-1. GitHub 저장소에 push
-2. Vercel에서 저장소 import
-3. Framework는 Next.js 자동 인식
-4. Deploy 클릭
-5. 배포 완료 후 `src/data/portfolio.ts`의 `siteMeta.siteUrl`을 실제 배포 URL로 갱신
+The content hub connects to my Tistory blog, where I organize learning notes, project reflections, interviews, book reviews, internship logs, and technical study records.
 
-## V2 제안
+---
 
-- 영문/국문 라우팅 분리 i18n (`/ko`, `/en`)
-- 프로젝트 상세 페이지 동적 라우팅 (`/projects/[slug]`)
-- Notion/MD 기반 콘텐츠 연동
-- Resume PDF 자동 버전 관리
-- 간단한 방문 분석(예: Plausible, GA)
+## Tech Stack
+
+- **Framework**: Next.js
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel
+- **Core Features**: Responsive UI, Dark Mode, KR/EN Toggle, Evidence Modal, Activity Gallery, SEO Metadata
+
+---
+
+## Site Sections
+
+- Hero
+- About
+- Tech Stack
+- Projects
+- Experience
+- Activities
+- Education
+- Certifications
+- Awards & Honors
+- Content Hub
+- Timeline
+- Gallery
+- Resume
+- Contact
+
+---
+
+## Direction
+
+This portfolio is being developed as a long-term personal branding platform.
+
+Future improvements may include:
+
+- Project detail pages
+- Internal blog or notes system
+- Comment system
+- Supabase Auth integration
+- Admin-based content management
+- AI-powered portfolio assistant
+
+---
+
+## Contact
+
+- **Portfolio**: [https://markus-portfolio-mu.vercel.app](https://markus-portfolio-mu.vercel.app/)
+- **GitHub**: [https://github.com/mk-isos](https://github.com/mk-isos)
+- **Blog**: [https://mkisos.tistory.com](https://mkisos.tistory.com/)
+- **Instagram**: [https://www.instagram.com/markus_isos](https://www.instagram.com/markus_isos/)
+- **LinkedIn**: [https://www.linkedin.com/in/mkisos](https://www.linkedin.com/in/mkisos)
