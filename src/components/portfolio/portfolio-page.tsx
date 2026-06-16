@@ -37,6 +37,7 @@ import {
 } from "@/data/portfolio";
 import { EvidenceModal } from "@/components/common/evidence-modal";
 import { EvidenceLinkButton } from "@/components/common/evidence-link-button";
+import { GalleryModal } from "@/components/common/gallery-modal";
 import { useSitePreferences } from "@/components/portfolio/site-preferences-context";
 
 const OBSERVED_SECTION_IDS: NavigationId[] = [
@@ -833,33 +834,63 @@ export function PortfolioPage() {
                   </p>
                   {item.evidenceItems?.length ? (
                     <div className="mt-5 flex flex-wrap gap-2.5">
-                      {item.evidenceItems.map((evidence) =>
-                        evidence.type === "image" ? (
-                          <EvidenceModal
-                            key={`${item.title}-${evidence.src}`}
-                            imageSrc={evidence.src}
-                            imageAlt={t(evidence.alt)}
-                            imageWidth={evidence.width}
-                            imageHeight={evidence.height}
-                            title={item.title}
-                            triggerLabel={t(evidence.label)}
-                            closeLabel={language === "ko" ? "닫기" : "Close"}
-                            zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
-                            zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
-                            fallbackMessage={
-                              language === "ko"
-                                ? "증빙 이미지를 불러올 수 없습니다."
-                                : "The evidence image could not be loaded."
-                            }
-                          />
-                        ) : (
+                      {item.evidenceItems.map((evidence) => {
+                        if (evidence.type === "image") {
+                          return (
+                            <EvidenceModal
+                              key={`${item.title}-${evidence.src}`}
+                              imageSrc={evidence.src}
+                              imageAlt={t(evidence.alt)}
+                              imageWidth={evidence.width}
+                              imageHeight={evidence.height}
+                              title={item.title}
+                              triggerLabel={t(evidence.label)}
+                              closeLabel={language === "ko" ? "닫기" : "Close"}
+                              zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                              zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                              fallbackMessage={
+                                language === "ko"
+                                  ? "증빙 이미지를 불러올 수 없습니다."
+                                  : "The evidence image could not be loaded."
+                              }
+                            />
+                          );
+                        }
+
+                        if (evidence.type === "gallery") {
+                          return (
+                            <GalleryModal
+                              key={`${item.title}-gallery`}
+                              images={evidence.images.map((image) => ({
+                                src: image.src,
+                                width: image.width,
+                                height: image.height,
+                                alt: t(image.alt),
+                              }))}
+                              title={item.title}
+                              triggerLabel={t(evidence.label)}
+                              closeLabel={language === "ko" ? "닫기" : "Close"}
+                              previousLabel={language === "ko" ? "이전 사진" : "Previous photo"}
+                              nextLabel={language === "ko" ? "다음 사진" : "Next photo"}
+                              zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                              zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                              fallbackMessage={
+                                language === "ko"
+                                  ? "증빙 이미지를 불러올 수 없습니다."
+                                  : "The evidence image could not be loaded."
+                              }
+                            />
+                          );
+                        }
+
+                        return (
                           <EvidenceLinkButton
                             key={`${item.title}-${evidence.href}`}
                             href={evidence.href}
                             label={t(evidence.label)}
                           />
-                        ),
-                      )}
+                        );
+                      })}
                     </div>
                   ) : null}
                 </article>
@@ -896,28 +927,66 @@ export function PortfolioPage() {
                     <p className="mt-1 text-xs text-zinc-500">{t(activity.organizer)}</p>
                   ) : null}
                 </div>
-                {activity.evidence?.type === "image" ? (
-                  <EvidenceModal
-                    imageSrc={activity.evidence.src}
-                    imageAlt={t(activity.evidence.alt)}
-                    imageWidth={activity.evidence.width}
-                    imageHeight={activity.evidence.height}
-                    title={t(activity.title)}
-                    triggerLabel={t(activity.evidence.label)}
-                    closeLabel={language === "ko" ? "닫기" : "Close"}
-                    zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
-                    zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
-                    fallbackMessage={
-                      language === "ko"
-                        ? "증빙 이미지를 불러올 수 없습니다."
-                        : "The evidence image could not be loaded."
-                    }
-                  />
-                ) : activity.evidence?.type === "link" ? (
-                  <EvidenceLinkButton
-                    href={activity.evidence.href}
-                    label={t(activity.evidence.label)}
-                  />
+                {activity.evidenceItems?.length ? (
+                  <div className="flex flex-wrap gap-2.5">
+                    {activity.evidenceItems.map((evidence) => {
+                      if (evidence.type === "image") {
+                        return (
+                          <EvidenceModal
+                            key={`${activity.title.ko}-${evidence.src}`}
+                            imageSrc={evidence.src}
+                            imageAlt={t(evidence.alt)}
+                            imageWidth={evidence.width}
+                            imageHeight={evidence.height}
+                            title={t(activity.title)}
+                            triggerLabel={t(evidence.label)}
+                            closeLabel={language === "ko" ? "닫기" : "Close"}
+                            zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                            zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                            fallbackMessage={
+                              language === "ko"
+                                ? "증빙 이미지를 불러올 수 없습니다."
+                                : "The evidence image could not be loaded."
+                            }
+                          />
+                        );
+                      }
+
+                      if (evidence.type === "gallery") {
+                        return (
+                          <GalleryModal
+                            key={`${activity.title.ko}-gallery`}
+                            images={evidence.images.map((image) => ({
+                              src: image.src,
+                              width: image.width,
+                              height: image.height,
+                              alt: t(image.alt),
+                            }))}
+                            title={t(activity.title)}
+                            triggerLabel={t(evidence.label)}
+                            closeLabel={language === "ko" ? "닫기" : "Close"}
+                            previousLabel={language === "ko" ? "이전 사진" : "Previous photo"}
+                            nextLabel={language === "ko" ? "다음 사진" : "Next photo"}
+                            zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                            zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                            fallbackMessage={
+                              language === "ko"
+                                ? "활동 사진을 불러올 수 없습니다."
+                                : "The activity photo could not be loaded."
+                            }
+                          />
+                        );
+                      }
+
+                      return (
+                        <EvidenceLinkButton
+                          key={`${activity.title.ko}-${evidence.href}`}
+                          href={evidence.href}
+                          label={t(evidence.label)}
+                        />
+                      );
+                    })}
+                  </div>
                 ) : null}
               </li>
             ))}

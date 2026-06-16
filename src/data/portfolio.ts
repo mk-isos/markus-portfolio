@@ -595,6 +595,16 @@ export type Evidence =
       type: "link";
       label: LocalizedText;
       href: string;
+    }
+  | {
+      type: "gallery";
+      label: LocalizedText;
+      images: {
+        src: string;
+        width: number;
+        height: number;
+        alt: LocalizedText;
+      }[];
     };
 
 export type Experience = {
@@ -637,40 +647,44 @@ export type Activity = {
   period?: string;
   description?: LocalizedText;
   organizer?: LocalizedText;
-  evidence?: Evidence;
+  evidenceItems?: Evidence[];
 };
 
 export const activities: Activity[] = [
   {
     title: text("2022 충북대학교 나비 총학생회", "2022 Student Council, Chungbuk National University"),
-    evidence: {
-      type: "image",
-      label: text("활동 사진", "Activity Photo"),
-      src: "/activities/nabi-student-council.jpeg",
-      width: 1206,
-      height: 1201,
-      alt: text(
-        "2022 충북대학교 나비 총학생회 단체 사진",
-        "2022 Chungbuk National University Nabi Student Council group photo",
-      ),
-    },
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("활동 사진", "Activity Photo"),
+        src: "/activities/nabi-student-council.jpeg",
+        width: 1206,
+        height: 1201,
+        alt: text(
+          "2022 충북대학교 나비 총학생회 단체 사진",
+          "2022 Chungbuk National University Nabi Student Council group photo",
+        ),
+      },
+    ],
   },
   {
     title: text(
       "2022 충북대학교 아벨리오 개신대동체 축제준비위원회 (무대관리팀)",
       "2022 Abelio Festival Committee, Stage Management Team, Chungbuk National University",
     ),
-    evidence: {
-      type: "image",
-      label: text("활동 사진", "Activity Photo"),
-      src: "/activities/abelio-festival-committee.jpeg",
-      width: 1206,
-      height: 1095,
-      alt: text(
-        "2022 충북대학교 아벨리오 개신대동체 축제준비위원회 단체 사진",
-        "2022 Chungbuk National University Abelio Festival Committee group photo",
-      ),
-    },
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("활동 사진", "Activity Photo"),
+        src: "/activities/abelio-festival-committee.jpeg",
+        width: 1206,
+        height: 1095,
+        alt: text(
+          "2022 충북대학교 아벨리오 개신대동체 축제준비위원회 단체 사진",
+          "2022 Chungbuk National University Abelio Festival Committee group photo",
+        ),
+      },
+    ],
   },
   {
     title: text(
@@ -686,39 +700,75 @@ export const activities: Activity[] = [
   },
   {
     title: text("2024 LG Aimers 4기", "2024 LG Aimers 4th Cohort"),
-    evidence: {
-      type: "image",
-      label: text("수료증", "Certificate"),
-      src: "/activities/LGAimers.png",
-      width: 908,
-      height: 1310,
-      alt: text("LG Aimers 4기 수료증", "LG Aimers 4th Cohort certificate"),
-    },
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("수료증", "Certificate"),
+        src: "/activities/LGAimers.png",
+        width: 908,
+        height: 1310,
+        alt: text("LG Aimers 4기 수료증", "LG Aimers 4th Cohort certificate"),
+      },
+    ],
   },
   {
     title: text("2026 한빛미디어 나는 리뷰어다", "2026 Hanbit Media Technical Reviewer Program"),
   },
   {
     title: text("2026 KANANA 429 카카오AI 앰배서더", "2026 KANANA 429 Kakao AI Ambassador"),
-    evidence: {
-      type: "link",
-      label: text("활동 기록", "Activity Log"),
-      href: "https://mkisos.tistory.com/category/%EC%BD%94%EB%94%A9%20%EB%8F%84%EA%B5%AC/%EC%B9%B4%EC%B9%B4%EC%98%A4%20AI%20%EC%95%B0%EB%B0%B0%EC%84%9C%EB%8D%94%20KANANA%20429",
-    },
+    evidenceItems: [
+      {
+        type: "link",
+        label: text("활동 기록", "Activity Log"),
+        href: "https://mkisos.tistory.com/category/%EC%BD%94%EB%94%A9%20%EB%8F%84%EA%B5%AC/%EC%B9%B4%EC%B9%B4%EC%98%A4%20AI%20%EC%95%B0%EB%B0%B0%EC%84%9C%EB%8D%94%20KANANA%20429",
+      },
+      {
+        type: "gallery",
+        label: text("활동 사진", "Activity Photo"),
+        images: [
+          {
+            src: "/activities/kanana-429-01.jpeg",
+            width: 1206,
+            height: 1599,
+            alt: text("KANANA 429 활동 사진 1", "KANANA 429 activity photo 1"),
+          },
+          {
+            src: "/activities/kanana-429-02.jpeg",
+            width: 1206,
+            height: 892,
+            alt: text("KANANA 429 활동 사진 2", "KANANA 429 activity photo 2"),
+          },
+          {
+            src: "/activities/kanana-429-03.jpeg",
+            width: 1206,
+            height: 1580,
+            alt: text("KANANA 429 활동 사진 3", "KANANA 429 activity photo 3"),
+          },
+          {
+            src: "/activities/kanana-429-04.jpeg",
+            width: 1206,
+            height: 988,
+            alt: text("KANANA 429 활동 사진 4", "KANANA 429 activity photo 4"),
+          },
+        ],
+      },
+    ],
   },
   {
     title: text("2026 해커스 자격증 서포터즈 1기", "2026 Hackers Certification Supporters 1st Cohort"),
-    evidence: {
-      type: "image",
-      label: text("전자 명함", "Digital Card"),
-      src: "/activities/hackers.png",
-      width: 1876,
-      height: 838,
-      alt: text(
-        "해커스 자격증 서포터즈 1기 활동 증빙",
-        "Hackers Certification Supporters 1st Cohort evidence",
-      ),
-    },
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("전자 명함", "Digital Card"),
+        src: "/activities/hackers.png",
+        width: 1876,
+        height: 838,
+        alt: text(
+          "해커스 자격증 서포터즈 1기 활동 증빙",
+          "Hackers Certification Supporters 1st Cohort evidence",
+        ),
+      },
+    ],
   },
 ];
 
