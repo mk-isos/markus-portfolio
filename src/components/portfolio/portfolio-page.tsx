@@ -840,11 +840,12 @@ export function PortfolioPage() {
                             <EvidenceModal
                               key={`${item.title}-${evidence.src}`}
                               imageSrc={evidence.src}
-                              imageAlt={t(evidence.alt)}
-                              imageWidth={evidence.width}
-                              imageHeight={evidence.height}
-                              title={item.title}
-                              triggerLabel={t(evidence.label)}
+                            imageAlt={t(evidence.alt)}
+                            imageWidth={evidence.width}
+                            imageHeight={evidence.height}
+                            iconVariant={evidence.iconVariant}
+                            title={item.title}
+                            triggerLabel={t(evidence.label)}
                               closeLabel={language === "ko" ? "닫기" : "Close"}
                               zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
                               zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
@@ -938,6 +939,7 @@ export function PortfolioPage() {
                             imageAlt={t(evidence.alt)}
                             imageWidth={evidence.width}
                             imageHeight={evidence.height}
+                            iconVariant={evidence.iconVariant}
                             title={t(activity.title)}
                             triggerLabel={t(evidence.label)}
                             closeLabel={language === "ko" ? "닫기" : "Close"}
@@ -1095,10 +1097,11 @@ export function PortfolioPage() {
                     {award.evidence?.type === "image" ? (
                       <EvidenceModal
                         imageSrc={award.evidence.src}
-                        imageAlt={t(award.evidence.alt)}
-                        imageWidth={award.evidence.width}
-                        imageHeight={award.evidence.height}
-                        title={t(award.title)}
+                      imageAlt={t(award.evidence.alt)}
+                      imageWidth={award.evidence.width}
+                      imageHeight={award.evidence.height}
+                      iconVariant={award.evidence.iconVariant}
+                      title={t(award.title)}
                         triggerLabel={t(award.evidence.label)}
                         closeLabel={language === "ko" ? "닫기" : "Close"}
                         zoomInLabel={language === "ko" ? "확대" : "Zoom in"}

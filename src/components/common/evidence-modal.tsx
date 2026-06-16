@@ -8,6 +8,7 @@ type EvidenceModalProps = {
   imageAlt: string;
   imageWidth: number;
   imageHeight: number;
+  iconVariant?: "eye" | "image";
   title: string;
   triggerLabel: string;
   closeLabel: string;
@@ -21,6 +22,7 @@ export function EvidenceModal({
   imageAlt,
   imageWidth,
   imageHeight,
+  iconVariant = "eye",
   title,
   triggerLabel,
   closeLabel,
@@ -79,8 +81,19 @@ export function EvidenceModal({
           strokeLinejoin="round"
           className="h-3.5 w-3.5"
         >
-          <circle cx="12" cy="12" r="3" />
-          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+          {iconVariant === "image" ? (
+            <>
+              <path d="M4 16 8.6 11.4a2 2 0 0 1 2.8 0L16 16" />
+              <path d="m14 14 1.6-1.6a2 2 0 0 1 2.8 0L20 14" />
+              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+            </>
+          ) : (
+            <>
+              <circle cx="12" cy="12" r="3" />
+              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+            </>
+          )}
         </svg>
       </button>
 

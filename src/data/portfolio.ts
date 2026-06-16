@@ -590,6 +590,7 @@ export type Evidence =
       width: number;
       height: number;
       alt: LocalizedText;
+      iconVariant?: "eye" | "image";
     }
   | {
       type: "link";
@@ -660,6 +661,7 @@ export const activities: Activity[] = [
         src: "/activities/nabi-student-council.jpeg",
         width: 1206,
         height: 1201,
+        iconVariant: "image",
         alt: text(
           "2022 충북대학교 나비 총학생회 단체 사진",
           "2022 Chungbuk National University Nabi Student Council group photo",
@@ -679,6 +681,7 @@ export const activities: Activity[] = [
         src: "/activities/abelio-festival-committee.jpeg",
         width: 1206,
         height: 1095,
+        iconVariant: "image",
         alt: text(
           "2022 충북대학교 아벨리오 개신대동체 축제준비위원회 단체 사진",
           "2022 Chungbuk National University Abelio Festival Committee group photo",
