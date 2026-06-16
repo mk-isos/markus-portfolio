@@ -831,12 +831,35 @@ export function PortfolioPage() {
                   <p className="mt-4 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
                     {t(item.description)}
                   </p>
-                  {item.evidence ? (
-                    <div className="mt-5">
-                      <EvidenceLinkButton
-                        href={item.evidence.href}
-                        label={t(item.evidence.label)}
-                      />
+                  {item.evidenceItems?.length ? (
+                    <div className="mt-5 flex flex-wrap gap-2.5">
+                      {item.evidenceItems.map((evidence) =>
+                        evidence.type === "image" ? (
+                          <EvidenceModal
+                            key={`${item.title}-${evidence.src}`}
+                            imageSrc={evidence.src}
+                            imageAlt={t(evidence.alt)}
+                            imageWidth={evidence.width}
+                            imageHeight={evidence.height}
+                            title={item.title}
+                            triggerLabel={t(evidence.label)}
+                            closeLabel={language === "ko" ? "닫기" : "Close"}
+                            zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                            zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                            fallbackMessage={
+                              language === "ko"
+                                ? "증빙 이미지를 불러올 수 없습니다."
+                                : "The evidence image could not be loaded."
+                            }
+                          />
+                        ) : (
+                          <EvidenceLinkButton
+                            key={`${item.title}-${evidence.href}`}
+                            href={evidence.href}
+                            label={t(evidence.label)}
+                          />
+                        ),
+                      )}
                     </div>
                   ) : null}
                 </article>
