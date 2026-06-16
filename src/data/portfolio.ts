@@ -777,6 +777,10 @@ export type Award = {
   detail: LocalizedText;
   date: string;
   evidence?: Evidence;
+  externalLinks?: {
+    label: LocalizedText;
+    href: string;
+  }[];
 };
 
 export const awards: Award[] = [
@@ -827,6 +831,12 @@ export const awards: Award[] = [
       height: 1642,
       alt: text("2024 AI 메이커톤 경진대회 최우수상 증빙", "2024 AI Makerthon award evidence"),
     },
+    externalLinks: [
+      {
+        label: text("관련 기사", "Article"),
+        href: "http://m.cbiz.kr/news/articleView.html?idxno=27841",
+      },
+    ],
   },
   {
     title: text("2024 공개 SW 개발자대회", "2024 Open Source Developer Competition"),
