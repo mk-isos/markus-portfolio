@@ -773,6 +773,24 @@ export const activities: Activity[] = [
       },
     ],
   },
+  {
+    title: text(
+      "2026 커널아카데미 AI 서포터즈 UNIKER 1기",
+      "2026 Kernel Academy AI Supporters UNIKER 1st Cohort",
+    ),
+  },
+  {
+    title: text(
+      "2026 해커스 블로그 리포터 '해블리 16기'",
+      "2026 Hackers Blog Reporter 'Haebli 16th Cohort'",
+    ),
+  },
+  {
+    title: text("2026 BEYOND BUSAN 3기 하반기", "2026 BEYOND BUSAN 3rd Cohort, Second Half"),
+  },
+  {
+    title: text("2026 랭플릭스 서포터즈 1기", "2026 Langflix Supporters 1st Cohort"),
+  },
 ];
 
 export const education = [
