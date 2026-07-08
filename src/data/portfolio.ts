@@ -794,6 +794,9 @@ export const activities: Activity[] = [
   {
     title: text("2026 LG Aimers 9기", "2026 LG Aimers 9th Cohort"),
   },
+  {
+    title: text("2026 FLY ASIA 서포터즈", "2026 FLY ASIA Supporters"),
+  },
 ];
 
 export const education = [
