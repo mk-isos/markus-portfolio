@@ -716,6 +716,13 @@ export const activities: Activity[] = [
   },
   {
     title: text("2026 한빛미디어 나는 리뷰어다", "2026 Hanbit Media Technical Reviewer Program"),
+    evidenceItems: [
+      {
+        type: "link",
+        label: text("활동 기록", "Activity Log"),
+        href: "https://mkisos.tistory.com/category/%EC%A7%80%EC%8B%9D%20%EB%8F%84%EA%B5%AC/%EB%8F%85%EC%84%9C",
+      },
+    ],
   },
   {
     title: text("2026 KANANA 429 카카오AI 앰배서더", "2026 KANANA 429 Kakao AI Ambassador"),
@@ -771,6 +778,17 @@ export const activities: Activity[] = [
           "Hackers Certification Supporters 1st Cohort evidence",
         ),
       },
+      {
+        type: "image",
+        label: text("우수 참여자", "Outstanding Participant"),
+        src: "/activities/hackers-aice-reward.jpeg",
+        width: 1206,
+        height: 1961,
+        alt: text(
+          "해커스 자격증 서포터즈 1기 우수 참여자 혜택 증빙",
+          "Hackers Certification Supporters 1st Cohort outstanding participant reward evidence",
+        ),
+      },
     ],
   },
   {
@@ -778,12 +796,13 @@ export const activities: Activity[] = [
       "2026 커널아카데미 AI 서포터즈 UNIKER 1기",
       "2026 Kernel Academy AI Supporters UNIKER 1st Cohort",
     ),
-  },
-  {
-    title: text(
-      "2026 해커스 블로그 리포터 '해블리 16기'",
-      "2026 Hackers Blog Reporter 'Haebli 16th Cohort'",
-    ),
+    evidenceItems: [
+      {
+        type: "link",
+        label: text("활동 기록", "Activity Log"),
+        href: "https://mkisos.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EB%8F%84%EA%B5%AC/%5B%EC%BB%A4%EB%84%90%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%5D%20%EB%8C%80%ED%95%99%EC%83%9D%20AI%20%ED%81%AC%EB%A3%A8%20UNIKER%201%EA%B8%B0",
+      },
+    ],
   },
   {
     title: text("2026 BEYOND BUSAN 3기 하반기", "2026 BEYOND BUSAN 3rd Cohort, Second Half"),
