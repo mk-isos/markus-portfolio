@@ -958,6 +958,34 @@ export const awards: Award[] = [
       ),
     },
   },
+  {
+    title: text(
+      "2026년 달서 전국 대학생 AI활용 아이디어 콘테스트",
+      "2026 Dalseo National University Student AI Idea Contest",
+    ),
+    detail: text(
+      "입선 수상 · 대구광역시 달서구청장상 (110팀 중 12팀 본선 진출)",
+      "Honorable Mention · Award from the Mayor of Dalseo-gu, Daegu (12 finalist teams out of 110)",
+    ),
+    date: "2026.08",
+    evidence: {
+      type: "image",
+      label: text("증빙", "Evidence"),
+      src: "/awards/dalseo-ai-contest-2026.jpg",
+      width: 1701,
+      height: 2491,
+      alt: text(
+        "2026년 달서 전국 대학생 AI활용 아이디어 콘테스트 입선 수상 증빙",
+        "2026 Dalseo National University Student AI Idea Contest honorable mention evidence",
+      ),
+    },
+    externalLinks: [
+      {
+        label: text("관련 후기", "Review"),
+        href: "https://mkisos.tistory.com/entry/mirion",
+      },
+    ],
+  },
 ];
 
 export const resume = {
