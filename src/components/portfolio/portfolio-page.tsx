@@ -1063,7 +1063,20 @@ export function PortfolioPage() {
                         : "The certificate image could not be loaded."
                     }
                   />
-                ) : null}
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    aria-label={
+                      language === "ko"
+                        ? `${t(certification.name)} 증빙 준비 중`
+                        : `${t(certification.name)} certificate pending`
+                    }
+                    className="inline-flex shrink-0 cursor-not-allowed items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-400 dark:border-zinc-800 dark:bg-zinc-950/70 dark:text-zinc-600"
+                  >
+                    {language === "ko" ? "증빙" : "Certificate"}
+                  </button>
+                )}
               </article>
             ))}
           </div>

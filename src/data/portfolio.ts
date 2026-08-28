@@ -866,6 +866,11 @@ export const certifications: Certification[] = [
       alt: text("SQLD 자격증", "SQLD certificate"),
     },
   },
+  {
+    name: text("ADsP", "ADsP"),
+    issuer: "",
+    date: "2026",
+  },
 ];
 
 export type Award = {
