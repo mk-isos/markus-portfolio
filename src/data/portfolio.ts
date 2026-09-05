@@ -812,6 +812,21 @@ export const activities: Activity[] = [
   },
   {
     title: text("2026 LG Aimers 9기", "2026 LG Aimers 9th Cohort"),
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("수료증", "Certificate"),
+        src: "/activities/lg-aimers-9-certificate.png",
+        width: 876,
+        height: 1244,
+        alt: text("LG Aimers 9기 수료증", "LG Aimers 9th Cohort certificate"),
+      },
+      {
+        type: "link",
+        label: text("활동 기록", "Activity Log"),
+        href: "https://mkisos.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EB%8F%84%EA%B5%AC/LG%20Aimers",
+      },
+    ],
   },
   {
     title: text("2026 FLY ASIA 서포터즈", "2026 FLY ASIA Supporters"),
