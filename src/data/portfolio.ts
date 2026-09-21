@@ -818,6 +818,17 @@ export const activities: Activity[] = [
         label: text("활동 기록", "Activity Log"),
         href: "https://mkisos.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EB%8F%84%EA%B5%AC/%5B%EC%BB%A4%EB%84%90%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%5D%20%EB%8C%80%ED%95%99%EC%83%9D%20AI%20%ED%81%AC%EB%A3%A8%20UNIKER%201%EA%B8%B0",
       },
+      {
+        type: "image",
+        label: text("수료증", "Certificate"),
+        src: "/activities/uniker-certificate.jpeg",
+        width: 1093,
+        height: 1134,
+        alt: text(
+          "커널아카데미 AI 서포터즈 UNIKER 1기 수료증",
+          "Kernel Academy AI Supporters UNIKER 1st Cohort certificate",
+        ),
+      },
     ],
   },
   {
