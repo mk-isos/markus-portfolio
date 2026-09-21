@@ -907,6 +907,12 @@ export const certifications: Certification[] = [
     name: text("ADsP", "ADsP"),
     issuer: "",
     date: "2026",
+    evidenceImage: {
+      src: "/certifications/adsp.jpeg",
+      width: 925,
+      height: 1307,
+      alt: text("ADsP 자격증", "ADsP certificate"),
+    },
   },
 ];
 
