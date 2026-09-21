@@ -943,6 +943,7 @@ export type Award = {
   detail: LocalizedText;
   date: string;
   evidence?: Evidence;
+  evidenceItems?: Evidence[];
   externalLinks?: {
     label: LocalizedText;
     href: string;
@@ -1048,6 +1049,47 @@ export const awards: Award[] = [
       {
         label: text("관련 후기", "Review"),
         href: "https://mkisos.tistory.com/entry/mirion",
+      },
+    ],
+  },
+  {
+    title: text(
+      "2026년 대구도시개발공사 공공데이터 활용 아이디어 공모",
+      "2026 Daegu Urban Development Corporation Public Data Idea Contest",
+    ),
+    detail: text(
+      "우수작 선정 · 평가점수 94점, 선정작 중 최고점 · 매입임대주택 예측정비 플랫폼 「나이테」 (대구도시개발공사 주최)",
+      "Excellent Idea Selection · 94 points, the highest score among selected entries · Naitre, a predictive maintenance platform for purchased rental housing (Hosted by Daegu Urban Development Corporation)",
+    ),
+    date: "2026.09",
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("증빙 · 선정 안내", "Evidence · Selection Notice"),
+        src: "/awards/2026-dudc/award-email.jpg",
+        width: 797,
+        height: 1440,
+        alt: text(
+          "2026년 대구도시개발공사 공공데이터 활용 아이디어 공모 우수작 선정 안내 이메일",
+          "Selection notice email for the 2026 Daegu Urban Development Corporation Public Data Idea Contest",
+        ),
+      },
+      {
+        type: "image",
+        label: text("증빙 · 평가 결과", "Evidence · Evaluation Result"),
+        src: "/awards/2026-dudc/evaluation-result.png",
+        width: 1326,
+        height: 1394,
+        alt: text(
+          "2026년 대구도시개발공사 공공데이터 활용 아이디어 공모 우수작 평가 결과",
+          "Evaluation result for the 2026 Daegu Urban Development Corporation Public Data Idea Contest",
+        ),
+      },
+    ],
+    externalLinks: [
+      {
+        label: text("제안서", "Proposal"),
+        href: "/awards/2026-dudc/naitre-proposal.pdf",
       },
     ],
   },

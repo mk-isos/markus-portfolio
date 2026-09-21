@@ -1105,32 +1105,39 @@ export function PortfolioPage() {
                 <p className="mt-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
                   {t(award.detail)}
                 </p>
-                {award.evidence || award.externalLinks?.length ? (
+                {award.evidence || award.evidenceItems?.length || award.externalLinks?.length ? (
                   <div className="mt-4 flex flex-wrap gap-2.5">
-                    {award.evidence?.type === "image" ? (
-                      <EvidenceModal
-                        imageSrc={award.evidence.src}
-                      imageAlt={t(award.evidence.alt)}
-                      imageWidth={award.evidence.width}
-                      imageHeight={award.evidence.height}
-                      iconVariant={award.evidence.iconVariant}
-                      title={t(award.title)}
-                        triggerLabel={t(award.evidence.label)}
-                        closeLabel={language === "ko" ? "닫기" : "Close"}
-                        zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
-                        zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
-                        fallbackMessage={
-                          language === "ko"
-                            ? "증빙 이미지를 불러올 수 없습니다."
-                            : "The evidence image could not be loaded."
-                        }
-                      />
-                    ) : award.evidence?.type === "link" ? (
-                      <EvidenceLinkButton
-                        href={award.evidence.href}
-                        label={t(award.evidence.label)}
-                      />
-                    ) : null}
+                    {[
+                      ...(award.evidence ? [award.evidence] : []),
+                      ...(award.evidenceItems ?? []),
+                    ].map((evidence) =>
+                      evidence.type === "image" ? (
+                        <EvidenceModal
+                          key={`${award.title.ko}-${evidence.src}`}
+                          imageSrc={evidence.src}
+                          imageAlt={t(evidence.alt)}
+                          imageWidth={evidence.width}
+                          imageHeight={evidence.height}
+                          iconVariant={evidence.iconVariant}
+                          title={t(award.title)}
+                          triggerLabel={t(evidence.label)}
+                          closeLabel={language === "ko" ? "닫기" : "Close"}
+                          zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                          zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                          fallbackMessage={
+                            language === "ko"
+                              ? "증빙 이미지를 불러올 수 없습니다."
+                              : "The evidence image could not be loaded."
+                          }
+                        />
+                      ) : evidence.type === "link" ? (
+                        <EvidenceLinkButton
+                          key={`${award.title.ko}-${evidence.href}`}
+                          href={evidence.href}
+                          label={t(evidence.label)}
+                        />
+                      ) : null,
+                    )}
                     {award.externalLinks?.map((link) => (
                       <EvidenceLinkButton
                         key={`${award.title.ko}-${link.href}`}
