@@ -831,6 +831,12 @@ export const activities: Activity[] = [
   {
     title: text("2026 FLY ASIA 서포터즈", "2026 FLY ASIA Supporters"),
   },
+  {
+    title: text(
+      "2026 AI부트캠프 경진대회/공모전 프로젝트 팀",
+      "2026 AI Bootcamp Competition Project Team",
+    ),
+  },
 ];
 
 export const education = [
