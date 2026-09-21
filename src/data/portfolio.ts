@@ -749,6 +749,17 @@ export const activities: Activity[] = [
         href: "https://mkisos.tistory.com/category/%EC%BD%94%EB%94%A9%20%EB%8F%84%EA%B5%AC/%EC%B9%B4%EC%B9%B4%EC%98%A4%20AI%20%EC%95%B0%EB%B0%B0%EC%84%9C%EB%8D%94%20KANANA%20429",
       },
       {
+        type: "image",
+        label: text("수료증", "Certificate"),
+        src: "/activities/kanana-429-certificate.jpeg",
+        width: 987,
+        height: 1440,
+        alt: text(
+          "KANANA 429 카카오 AI 앰배서더 수료증",
+          "KANANA 429 Kakao AI Ambassador certificate",
+        ),
+      },
+      {
         type: "gallery",
         label: text("활동 사진", "Activity Photo"),
         images: [
