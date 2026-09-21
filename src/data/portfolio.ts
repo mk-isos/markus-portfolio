@@ -1093,6 +1093,47 @@ export const awards: Award[] = [
       },
     ],
   },
+  {
+    title: text(
+      "카카오 AI 앰배서더 KANANA 429 — 2026 Best Content",
+      "Kakao AI Ambassador KANANA 429 — 2026 Best Content",
+    ),
+    detail: text(
+      "AI 기술·모델, 서비스, 행사 및 직접 개발한 프로젝트를 주제로 꾸준히 콘텐츠를 제작해 '26 Best Content에 선정 (Kakao / Kakao AI Ambassador KANANA 429 · 수상자 김문기)",
+      "Selected for '26 Best Content after consistently creating content about AI technologies and models, services, events, and self-developed projects (Kakao / Kakao AI Ambassador KANANA 429 · Recipient: Moonki Kim)",
+    ),
+    date: "2026",
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("트로피", "Trophy"),
+        src: "/awards/2026-kanana-429/best-content-trophy.jpeg",
+        width: 1080,
+        height: 1440,
+        alt: text(
+          "김문기 카카오 AI 앰배서더 KANANA 429 '26 Best Content 트로피",
+          "Moonki Kim's Kakao AI Ambassador KANANA 429 '26 Best Content trophy",
+        ),
+      },
+      {
+        type: "image",
+        label: text("선정 결과", "Selection Result"),
+        src: "/awards/2026-kanana-429/best-content-selection.jpeg",
+        width: 1080,
+        height: 1440,
+        alt: text(
+          "카카오 AI 앰배서더 KANANA 429 Best Content 김문기 선정 결과",
+          "Kakao AI Ambassador KANANA 429 Best Content selection result for Moonki Kim",
+        ),
+      },
+    ],
+    externalLinks: [
+      {
+        label: text("관련 활동 기록", "View Contents"),
+        href: "https://mkisos.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EB%8F%84%EA%B5%AC/%EC%B9%B4%EC%B9%B4%EC%98%A4%20AI%20%EC%95%B0%EB%B0%B0%EC%84%9C%EB%8D%94%20KANANA%20429",
+      },
+    ],
+  },
 ];
 
 export const resume = {
