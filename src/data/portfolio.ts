@@ -641,6 +641,22 @@ export const experiences: Experience[] = [
       },
     ],
   },
+  {
+    title: "Chungbuk National University · Computer Vision Lab",
+    period: "09/01/2026 ~ Present",
+    position: text("Undergraduate Researcher", "Undergraduate Researcher"),
+    description: text(
+      "Vision-Language Model(VLM)을 활용한 Video Understanding과 temporal representation을 연구하고 있습니다. 관련 논문의 문제 정의와 실험 구조를 분석하고 오픈소스 모델의 inference pipeline을 직접 재현하며 연구 역량을 쌓고 있습니다. 현재는 Image Grid 기반 Zero-shot Video QA를 실험했으며, 이를 바탕으로 fixed-camera video의 시공간적 변화를 이미지 형태로 표현하여 pretrained VLM에 전달하는 연구를 진행할 예정입니다.",
+      "I study video understanding and temporal representation using Vision-Language Models (VLMs). I build research skills by analyzing the problem definitions and experimental designs of related papers and reproducing inference pipelines from open-source models. I have experimented with image grid-based zero-shot Video QA and plan to explore methods that represent spatiotemporal changes in fixed-camera video as images for pretrained VLMs.",
+    ),
+    evidenceItems: [
+      {
+        type: "link",
+        href: "https://mkisos.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EB%8F%84%EA%B5%AC/CVPR_Lab",
+        label: text("연구실 기록 보기", "View Research Lab Log"),
+      },
+    ],
+  },
 ];
 
 export type Activity = {
