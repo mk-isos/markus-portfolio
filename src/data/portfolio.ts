@@ -850,13 +850,13 @@ export const activities: Activity[] = [
     evidenceItems: [
       {
         type: "image",
-        label: text("부분 수료증", "Partial Completion Certificate"),
+        label: text("수료증", "Certificate"),
         src: "/activities/langflix-supporters-partial-certificate.png",
         width: 1052,
         height: 1468,
         alt: text(
-          "랭플릭스 SNS 서포터즈 1기 부분 수료증",
-          "Langflix SNS Supporters 1st Cohort partial completion certificate",
+          "랭플릭스 SNS 서포터즈 1기 수료증",
+          "Langflix SNS Supporters 1st Cohort certificate",
         ),
       },
     ],
