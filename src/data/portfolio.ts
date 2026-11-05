@@ -847,6 +847,19 @@ export const activities: Activity[] = [
   },
   {
     title: text("2026 랭플릭스 서포터즈 1기", "2026 Langflix Supporters 1st Cohort"),
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("부분 수료증", "Partial Completion Certificate"),
+        src: "/activities/langflix-supporters-partial-certificate.png",
+        width: 1052,
+        height: 1468,
+        alt: text(
+          "랭플릭스 SNS 서포터즈 1기 부분 수료증",
+          "Langflix SNS Supporters 1st Cohort partial completion certificate",
+        ),
+      },
+    ],
   },
   {
     title: text("2026 LG Aimers 9기", "2026 LG Aimers 9th Cohort"),
