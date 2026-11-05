@@ -884,6 +884,25 @@ export const activities: Activity[] = [
   },
   {
     title: text(
+      "FLY ASIA 2026 글로벌 어워즈 시민평가단",
+      "FLY ASIA 2026 Global Awards Citizen Evaluator",
+    ),
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("수료증", "Certificate"),
+        src: "/activities/fly-asia-2026-global-awards-citizen-evaluator-certificate.jpeg",
+        width: 396,
+        height: 563,
+        alt: text(
+          "FLY ASIA 2026 글로벌 어워즈 시민평가단 수료증",
+          "FLY ASIA 2026 Global Awards Citizen Evaluator certificate",
+        ),
+      },
+    ],
+  },
+  {
+    title: text(
       "2026 AI부트캠프 경진대회/공모전 프로젝트 팀",
       "2026 AI Bootcamp Competition Project Team",
     ),
