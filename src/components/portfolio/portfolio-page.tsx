@@ -1089,7 +1089,7 @@ export function PortfolioPage() {
             description={t(sectionCopy.awards.description)}
           />
           <div className="space-y-4">
-            {awards.map((award) => (
+            {[...awards].sort((a, b) => b.date.localeCompare(a.date)).map((award) => (
               <article
                 key={`${award.date}-${award.title.ko}`}
                 className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
@@ -1128,6 +1128,28 @@ export function PortfolioPage() {
                             language === "ko"
                               ? "증빙 이미지를 불러올 수 없습니다."
                               : "The evidence image could not be loaded."
+                          }
+                        />
+                      ) : evidence.type === "gallery" ? (
+                        <GalleryModal
+                          key={`${award.title.ko}-gallery`}
+                          images={evidence.images.map((image) => ({
+                            src: image.src,
+                            width: image.width,
+                            height: image.height,
+                            alt: t(image.alt),
+                          }))}
+                          title={t(award.title)}
+                          triggerLabel={t(evidence.label)}
+                          closeLabel={language === "ko" ? "닫기" : "Close"}
+                          previousLabel={language === "ko" ? "이전 사진" : "Previous photo"}
+                          nextLabel={language === "ko" ? "다음 사진" : "Next photo"}
+                          zoomInLabel={language === "ko" ? "확대" : "Zoom in"}
+                          zoomOutLabel={language === "ko" ? "축소" : "Zoom out"}
+                          fallbackMessage={
+                            language === "ko"
+                              ? "활동 사진을 불러올 수 없습니다."
+                              : "The activity photo could not be loaded."
                           }
                         />
                       ) : evidence.type === "link" ? (

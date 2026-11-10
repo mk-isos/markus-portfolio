@@ -1192,6 +1192,55 @@ export const awards: Award[] = [
   },
   {
     title: text(
+      "2026 첨단산업 PRIDE 공유대학 실무역량 경진대회",
+      "2026 Advanced Industry PRIDE Shared University Practical Skills Competition",
+    ),
+    detail: text(
+      "AI 자유과제 부문 본선 진출 · 공공데이터 8종과 AI를 활용해 오창 산업단지 건물 3,425동의 태양광·재사용 배터리 설치 적합도를 분석하는 웹 서비스 ‘다셀(DaSel)’ 개발 및 본선 발표 (주관: 충북대학교 RISE사업단 · 충북 PRIDE 공유대학)",
+      "Finalist in the AI Open Challenge category · Developed and presented DaSel, a web service that uses eight public datasets and AI to analyze the suitability of solar panels and reused-battery systems across 3,425 buildings in the Ochang Industrial Complex (Organized by Chungbuk National University RISE Project Group and Chungbuk PRIDE Shared University)",
+    ),
+    date: "2026.11",
+    evidenceItems: [
+      {
+        type: "gallery",
+        label: text("활동 사진", "Activity Photos"),
+        images: [
+          {
+            src: "/awards/2026-pride/dasel-activity-01.jpeg",
+            width: 1081,
+            height: 1440,
+            alt: text("다셀 프로젝트 본선 포스터", "DaSel project finalist poster"),
+          },
+          {
+            src: "/awards/2026-pride/dasel-activity-02.jpeg",
+            width: 1081,
+            height: 1440,
+            alt: text("다셀 프로젝트 본선 전시 현장", "DaSel project finalist exhibition"),
+          },
+          {
+            src: "/awards/2026-pride/dasel-activity-03.jpeg",
+            width: 1080,
+            height: 1440,
+            alt: text("다셀 프로젝트 본선 참가 사진", "DaSel project finalist participant photo"),
+          },
+          {
+            src: "/awards/2026-pride/dasel-activity-04.jpeg",
+            width: 1081,
+            height: 1440,
+            alt: text("PRIDE 공유대학 실무역량 경진대회 전시장", "PRIDE competition exhibition venue"),
+          },
+        ],
+      },
+    ],
+    externalLinks: [
+      {
+        label: text("다셀 서비스", "View DaSel"),
+        href: "https://dasel-weld.vercel.app/",
+      },
+    ],
+  },
+  {
+    title: text(
       "FLY ASIA 2026 서포터즈 우수상",
       "FLY ASIA 2026 Supporters Excellence Award",
     ),
