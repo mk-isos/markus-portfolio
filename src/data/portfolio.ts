@@ -881,6 +881,30 @@ export const activities: Activity[] = [
   },
   {
     title: text("2026 FLY ASIA 서포터즈", "2026 FLY ASIA Supporters"),
+    evidenceItems: [
+      {
+        type: "image",
+        label: text("수료증", "Certificate"),
+        src: "/activities/fly-asia-2026-supporters-certificate.jpeg",
+        width: 1002,
+        height: 1440,
+        alt: text(
+          "FLY ASIA 2026 서포터즈 수료증",
+          "FLY ASIA 2026 Supporters certificate",
+        ),
+      },
+      {
+        type: "image",
+        label: text("우수 수료증", "Excellence Certificate"),
+        src: "/activities/fly-asia-2026-supporters-excellence-certificate.jpeg",
+        width: 1007,
+        height: 1440,
+        alt: text(
+          "FLY ASIA 2026 서포터즈 우수 수료증",
+          "FLY ASIA 2026 Supporters excellence certificate",
+        ),
+      },
+    ],
   },
   {
     title: text(
