@@ -1190,6 +1190,28 @@ export const awards: Award[] = [
       },
     ],
   },
+  {
+    title: text(
+      "FLY ASIA 2026 서포터즈 우수상",
+      "FLY ASIA 2026 Supporters Excellence Award",
+    ),
+    detail: text(
+      "글로벌 1팀으로 FLY ASIA 2026 콘텐츠를 기획·제작하며 서포터즈 활동에 성실히 참여해 우수상 수상 (부산기술창업투자원)",
+      "Received the Excellence Award for planning and producing FLY ASIA 2026 content as part of Global Team 1 and actively contributing to the supporters program (Busan Technology Startup Investment Agency)",
+    ),
+    date: "2026.11",
+    evidence: {
+      type: "image",
+      label: text("수상 증빙", "Award Evidence"),
+      src: "/activities/fly-asia-2026-supporters-excellence-certificate.jpeg",
+      width: 1007,
+      height: 1440,
+      alt: text(
+        "김문기 FLY ASIA 2026 서포터즈 우수상 수상 증빙",
+        "Moonki Kim's FLY ASIA 2026 Supporters Excellence Award certificate",
+      ),
+    },
+  },
 ];
 
 export const resume = {
