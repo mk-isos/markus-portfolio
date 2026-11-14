@@ -1202,6 +1202,17 @@ export const awards: Award[] = [
     date: "2026.11",
     evidenceItems: [
       {
+        type: "image",
+        label: text("참가확인서", "Participation Certificate"),
+        src: "/awards/2026-pride/participation-certificate.jpeg",
+        width: 1072,
+        height: 1344,
+        alt: text(
+          "김문기 2026 첨단산업 PRIDE 공유대학 실무역량 경진대회 AI 자유주제 부문 참가확인서",
+          "Moonki Kim's participation certificate for the AI Open Challenge category of the 2026 Advanced Industry PRIDE Shared University Practical Skills Competition",
+        ),
+      },
+      {
         type: "gallery",
         label: text("활동 사진", "Activity Photos"),
         images: [
